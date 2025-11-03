@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bureau GCI - Home</title>
+    <title>Bureau GCI - Comunicação Estratégica</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS via CDN (Desenvolvimento) -->
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN (Usado para a página de Serviços) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 
-     <script>
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -25,6 +28,7 @@
                         'bureau-green': '#388e3c',
                         'bureau-purple': '#7b1fa2',
                         'cinza_escuro':'#313131',
+                        'cinza_claro': '#f4f4f4',
                     },
                     fontFamily: {
                         'sans': ['"Work Sans"', 'sans-serif'],
@@ -35,36 +39,726 @@
         }
     </script>
 
-     <!-- CSS Customizado Mínimo -->
+    <!-- CSS Customizado -->
     <style>
-        /* Fontes */
-        body { font-family: 'Work Sans', sans-serif;  }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Work Sans', sans-serif; }
+        body { font-family: 'Work Sans', sans-serif; background-color: #f7f7f7; }
+        h1, h2, h3, h4 { font-family: 'Work Sans', sans-serif; }
         
-        
-        /* Animação Fade In */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Estilos específicos para os botões de filtro de projetos */
+        .filter-button.active {
+            background-color: #8B0000; /* ufpe-red */
+            color: white;
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.3);
         }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
+
+        /* Estilo do Avatar para a Equipe (MELHORADO) */
+        .team-avatar {
+            box-shadow: 0 0 0 4px #fff, 0 0 0 6px #8B0000; /* Borda dupla */
+            background: linear-gradient(135deg, var(--tw-gradient-stops)); /* Gradiente */
+            transition: all 0.3s ease-in-out;
+            object-fit: cover; /* Garante que a imagem preencha o círculo */
+        }
+        .team-card:hover .team-avatar {
+             box-shadow: 0 0 0 4px #fff, 0 0 0 6px #7b1fa2; /* Borda muda no hover */
+             transform: scale(1.05);
         }
     </style>
-
-    
 </head>
-<body>
+<body class="pt-[90px] lg:pt-[100px] scroll-smooth"> 
     
+    <!-- ======================================== NAVBAR (MENU) ======================================== -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-cinza_escuro text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-5">
+                
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center space-x-2 scroll-smooth">
+                    <img src="assets/CCI branco.png" alt="logo" class="h-16 w-20">
+                </a>
+                
+                <!-- Menu Desktop -->
+                <ul class="hidden lg:flex space-x-8 text-sm">
+                    <li><a href="#hero" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Home</a></li>
+                    <li><a href="#sobre" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Sobre Nós</a></li>
+                    <li><a href="#servicos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Serviços</a></li>
+                    <li><a href="#projetos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Projetos</a></li>
+                    <li><a href="#equipe" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Equipe</a></li>
+                    <li><a href="#conexoes" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Nossas Conexões</a></li>
+                </ul>
+                
+                <!-- Botão Mobile Menu -->
+                <button id="mobile-menu-btn" class="lg:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Menu Mobile (Dropdown) -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-2 text-base">
+                <a href="#hero" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Home</a>
+                <a href="#sobre" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Sobre Nós</a>
+                <a href="#servicos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Serviços</a>
+                <a href="#projetos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Projetos</a>
+                <a href="#equipe" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Equipe</a>
+                <a href="#conexoes" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Nossas Conexões</a>
+            </div>
+        </div>
+    </nav>
+
+<!-- ========================================  HERO SECTION (HOME)  ======================================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden">
+        
+        <!-- Background com Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"></div>
+        
+        <!-- Conteúdo -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
+            <h1 class="text-5xl md:text-6xl lg:text-6xl font-bold mb-6 font-display animate-fade-in-up">
+                Criatividade com propósito:<br>
+                comunicar para transformar
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Somos especialistas em comunicação estratégica, design e projetos que geram impacto real
+            </p>
+            
+            <!-- Botões -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projetos" class="bg-ufpe-red text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-ufpe-red-light transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl scroll-smooth">
+                    Ver Projetos
+                </a>
+                <a href="#equipe" class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl scroll-smooth">
+                    Conhecer Equipe
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+<!-- ======================================== SOBRE NÓS / LOGO INSTITUCIONAL + LOGOS BUREAUS ======================================== -->
+   
+      <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            
+            <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
+                Sobre Nós
+            </h2>
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                Divididos em <b>três núcleos estratégicos</b>, atuamos de forma integrada para fortalecer a 
+                <b>comunicação institucional da extensão da UFPE</b>. Cada bureau desenvolve soluções especializadas que, 
+                juntas, constroem a identidade visual e narrativa da <b>extensão</b>, conectando a universidade com a sociedade.
+            </p>
+            <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            
+            <!-- Bureau Audiovisual -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-56 w-full overflow-hidden">
+                <img src="assets/Avatar Logo Bureau Audiovisual Vermelho.png" alt="Bureau Audiovisual UFPE PROEXT" class="h-full w-full object-cover">
+                </div>
+                <div class="p-6">
+                <h3 class="text-xl font-bold text-ufpe-red mb-2 font-display">Bureau Audiovisual</h3>
+                <p class="text-gray-700 leading-relaxed text-sm">
+                    Criação de vídeos institucionais, documentários acadêmicos, motion graphics, coberturas de eventos e 
+                    produção fotográfica. Registramos e compartilhamos o conhecimento em movimento.
+                </p>
+                </div>
+            </div>
+            
+            <!-- Bureau Editorial -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-56 w-full overflow-hidden">
+                <img src="assets/Avatar Logo Bureau Editorial Vermelho.png" alt="Bureau Editorial UFPE PROEXT" class="h-full w-full object-cover">
+                </div>
+                <div class="p-6">
+                <h3 class="text-xl font-bold text-ufpe-red mb-2 font-display">Bureau Editorial</h3>
+                <p class="text-gray-700 leading-relaxed text-sm">
+                    Produção editorial, copywriting, revisão textual e gestão de publicações institucionais e comunicação estratégica. 
+                    Contamos as histórias que marcam a UFPE.
+                </p>
+                </div>
+            </div>
+            
+            <!-- Bureau de Design -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div class="h-56 w-full overflow-hidden">
+                <img src="assets/Avatar Logo Bureau Design Vermelho.png" alt="Bureau de Design UFPE PROEXT" class="h-full w-full object-cover">
+                </div>
+                <div class="p-6">
+                <h3 class="text-xl font-bold text-ufpe-red mb-2 font-display">Bureau de Design</h3>
+                <p class="text-gray-700 leading-relaxed text-sm">
+                    Desenvolvimento de identidade visual, design gráfico, materiais institucionais e interfaces digitais. 
+                    Traduzimos a essência acadêmica em linguagem visual contemporânea.
+                </p>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- ======================================== SERVIÇOS SECTION ======================================== -->
+    <section id="servicos" class="py-12 md:py-20 bg-cinza_claro">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            
+            <!-- Título e Subtítulo -->
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
+                    Serviços
+                </h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    Soluções completas em comunicação institucional, unindo design, conteúdo e audiovisual para fortalecer a presença da UFPE.
+                </p>
+                <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
+            </div>
+
+            <!-- Grid de Cards de Serviço (Atualizado) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card 1: Design/Visual -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                    <div class="mb-4">
+                        <i data-lucide="star" class="w-10 h-10 text-ufpe-red"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
+                        Qualidade Visual
+                    </h3>
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                        Criação de identidade visual e design gráfico para projetos
+                    </p>
+                </div>
+
+                <!-- Card 2: Audiovisual -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                    <div class="mb-4">
+                        <i data-lucide="video" class="w-10 h-10 text-ufpe-red"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
+                        Produção Profissional
+                    </h3>
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                        Desenvolvimento de vídeos, documentários e cobertura fotográfica
+                    </p>
+                </div>
+
+                <!-- Card 3: Editorial/Textual -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                    <div class="mb-4">
+                        <i data-lucide="pencil-line" class="w-10 h-10 text-ufpe-red"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
+                        Escrita Criativa
+                    </h3>
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                        Conteúdo estratégico, revisão e publicações institucionais
+                    </p>
+                </div>
+
+                <!-- Card 4: Gestão Estratégica (Novo) -->
+                <div class="flex flex-col items-center text-center p-6 border-gray-200">
+                    <div class="mb-4">
+                        <i data-lucide="layers" class="w-10 h-10 text-ufpe-red"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
+                        Gestão de Campanhas
+                    </h3>
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                        Integração de mídias e coordenação de ações para a PROEXT
+                    </p>
+                </div>
+
+            </div>
+            
+            <!-- Subseção de Prazos e Contato (Novo) -->
+            <div class="mt-20 max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-2xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-cinza_escuro mb-4 border-b pb-2 font-display">
+                    Solicitação e Prazos
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-gray-700">
+                    
+                    <!-- Contato -->
+                    <div>
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-ufpe-red mr-3"></i>
+                            <span class="text-lg font-semibold text-ufpe-red">Email para Solicitação</span>
+                        </div>
+                        <p class="text-base break-words">
+                            Todas as solicitações de serviço devem ser enviadas por e-mail para:
+                            <br>
+                            <a href="mailto:contato.bureau@ufpe.br" class="text-blue-600 underline hover:text-blue-800 font-medium">
+                                contato.bureau@ufpe.br
+                            </a>
+                        </p>
+                        <p class="text-sm mt-2 text-gray-500">
+                            Inclua uma descrição detalhada da necessidade, público-alvo e data limite.
+                        </p>
+                    </div>
+
+                    <!-- Prazos -->
+                    <div>
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-ufpe-red mr-3"></i>
+                            <span class="text-lg font-semibold text-ufpe-red">Prazos de Entrega (Estimativas)</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-1 text-base">
+                            <li>Design Simples (Peças): 5 dias úteis</li>
+                            <li>Peças Editoriais/Revisão: 7 a 10 dias úteis</li>
+                            <li>Produção Audiovisual (Vídeos): 15 a 30 dias úteis</li>
+                            <li>Campanhas Integradas: Mínimo de 30 dias úteis</li>
+                        </ul>
+                        <p class="text-sm mt-2 text-gray-500">
+                            *Prazos são contados a partir da aprovação final do briefing.
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ======================================== PROJETOS SECTION ======================================== -->
+    <section id="projetos" class="py-12 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
+                    Nossos Projetos
+                </h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    Conheça alguns dos trabalhos desenvolvidos pela nossa equipe
+                </p>
+            </div>
+
+            <!-- Layout Principal: Sidebar + Conteúdo -->
+            <div class="lg:flex lg:space-x-10">
+                
+                <!-- Sidebar de Categorias -->
+                <aside class="w-full lg:w-64 mb-10 lg:mb-0 shrink-0">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-[120px]">
+                        <h3 class="text-lg font-bold text-cinza_escuro mb-4 border-b pb-2">CATEGORIAS</h3>
+                        
+                        <!-- Lista de Categorias -->
+                        <ul class="space-y-1 text-sm">
+                            <!-- A categoria 'Todos' será controlada pelo JavaScript para ativar/desativar -->
+                            <li id="cat-todos" class="category-filter flex justify-between items-center py-2 px-3 bg-red-50 rounded-lg transition-colors border-b last:border-b-0 cursor-pointer">
+                                <span class="font-bold text-ufpe-red">Todos os Projetos</span>
+                                <span class="text-xs bg-ufpe-red text-white px-2 py-0.5 rounded-full">47</span>
+                            </li>
+                            <!-- Mockup de Categorias -->
+                            <li id="cat-visual" class="category-filter flex justify-between items-center py-2 px-3 hover:bg-gray-50 rounded-lg transition-colors border-b last:border-b-0 cursor-pointer">
+                                <span class="text-gray-700">Identidade Visual</span><span class="text-xs text-gray-500">12</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 px-3 hover:bg-gray-50 rounded-lg transition-colors border-b last:border-b-0">
+                                <span class="text-gray-700">Acervos Musicais</span><span class="text-xs text-gray-500">7</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 px-3 hover:bg-gray-50 rounded-lg transition-colors border-b last:border-b-0">
+                                <span class="text-gray-700">Eventos</span><span class="text-xs text-gray-500">5</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 px-3 hover:bg-gray-50 rounded-lg transition-colors border-b last:border-b-0">
+                                <span class="text-gray-700">Editorial</span><span class="text-xs text-gray-500">5</span>
+                            </li>
+                            <li class="flex justify-between items-center py-2 px-3 hover:bg-gray-50 rounded-lg transition-colors last:border-b-0">
+                                <span class="text-gray-700">Mídias Sociais</span><span class="text-xs text-gray-500">5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Conteúdo Principal e Grid de Projetos -->
+                <div class="flex-grow">
+                    
+                    <!-- Filtros (Chips/Botões) -->
+                    <div id="filter-buttons" class="flex flex-wrap gap-3 mb-10">
+                        <button data-filter="TODOS" class="filter-button active bg-ufpe-red text-white px-6 py-2 rounded-full font-medium transition-colors shadow-md">
+                            TODOS
+                        </button>
+                        <button data-filter="DESIGN" class="filter-button bg-gray-300 text-cinza_escuro px-6 py-2 rounded-full font-medium hover:bg-gray-400 transition-colors">
+                            DESIGN
+                        </button>
+                        <button data-filter="AUDIOVISUAL" class="filter-button bg-gray-300 text-cinza_escuro px-6 py-2 rounded-full font-medium hover:bg-gray-400 transition-colors">
+                            AUDIOVISUAL
+                        </button>
+                        <button data-filter="EDITORIAL" class="filter-button bg-gray-300 text-cinza_escuro px-6 py-2 rounded-full font-medium hover:bg-gray-400 transition-colors">
+                            EDITORIAL
+                        </button>
+                    </div>
+
+                    <!-- Grid de Cards de Projeto -->
+                    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Cards serão injetados pelo JavaScript -->
+                    </div>
+                    
+                    <!-- O botão 'Ver mais projetos' foi removido desta seção -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ======================================== EQUIPE SECTION ======================================== -->
+    <section id="equipe" class="py-12 md:py-20 bg-cinza_claro">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
+                    Equipe
+                </h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    Conheça o nosso time dividido em 3 frentes de atuação
+                </p>
+                <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
+            </div>
+
+            <div id="team-sections-container">
+                <!-- Conteúdo da Equipe será gerado aqui via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================== CONEXÕES SECTION ======================================== -->
+    <section id="conexoes" class="py-12 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
+                    Nossas Conexões
+                </h2>
+                <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                    Explore os projetos desenvolvidos pelo Bureau da UFPE em parceria com outras entidades.
+                </p>
+                <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
+            </div>
+
+            <!-- Grid de Projetos Parceiros -->
+            <div id="connections-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards de Conexões serão injetados aqui pelo JavaScript -->
+            </div>
+            
+            <!-- Botão 'Ver Todas as Conexões' -->
+            <div id="load-more-container" class="text-center mt-12">
+                <button id="load-more-btn" class="inline-block bg-ufpe-red text-white px-8 py-3 rounded-xl font-semibold hover:bg-ufpe-red-light transition-colors transform hover:-translate-y-0.5 shadow-lg">
+                    Ver Todas as Conexões
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ======================================== FOOTER Placeholder ======================================== -->
+    <footer class="bg-cinza_escuro text-white p-8 text-center text-xs">
+        &copy; 2025 Bureau GCI. Todos os direitos reservados.
+    </footer>
+
+    <!-- ======================================== JavaScript Unificado ======================================== -->
+    <script>
+        // Dados de Mockup para Projetos
+        const PROJECTS_DATA = [
+            { id: 1, title: "Identidade Visual PROEXT", category: "DESIGN", subcategory: "Identidade Visual" },
+            { id: 2, title: "Campanha Vestibular 2024", category: "AUDIOVISUAL", subcategory: "Mídias Sociais" },
+            { id: 3, title: "Relatório Anual UFPE", category: "EDITORIAL", subcategory: "Editorial" },
+            { id: 4, title: "Website CCI Redesign", category: "DESIGN", subcategory: "Identidade Visual" },
+            { id: 5, title: "Podcast 'Conecta UFPE'", category: "AUDIOVISUAL", subcategory: "Acervos Musicais" },
+            { id: 6, title: "Guia de Boas-Vindas", category: "EDITORIAL", subcategory: "Editorial" },
+            { id: 7, title: "Vídeo Institucional", category: "AUDIOVISUAL", subcategory: "Eventos" },
+            { id: 8, title: "Logotipo Novo Projeto", category: "DESIGN", subcategory: "Identidade Visual" },
+            { id: 9, title: "Artigo Científico Design", category: "EDITORIAL", subcategory: "Editorial" },
+            { id: 10, title: "Cobertura Congresso", category: "AUDIOVISUAL", subcategory: "Eventos" },
+        ];
 
 
-    
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // 1. Lógica do Menu Mobile
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Inicializa ícones Lucide (para Serviços)
+            lucide.createIcons();
+
+            // 2. --- LÓGICA DA PÁGINA PROJETOS (FILTRAGEM) ---
+
+            const projectsGrid = document.getElementById('projects-grid');
+            const filterButtons = document.querySelectorAll('.filter-button');
+
+            function createProjectCard(project) {
+                const colorMap = {
+                    'DESIGN': 'ufpe-red/70',
+                    'AUDIOVISUAL': 'bureau-blue/70',
+                    'EDITORIAL': 'bureau-green/70',
+                    'TODOS': 'ufpe-red/70'
+                };
+                const primaryColor = colorMap[project.category] || 'ufpe-red/70';
+
+                return `
+                    <div class="project-card relative bg-cinza_escuro h-64 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-[1.01] overflow-hidden group" data-category="${project.category}">
+                        <div class="p-4 text-white">
+                            <p class="text-lg font-bold">${project.title}</p>
+                            <p class="text-xs text-gray-400">${project.category} - ${project.subcategory}</p>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-${primaryColor} to-cinza_escuro/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <!-- Link mock-up -->
+                        <a href="#" class="absolute inset-0 z-10"></a>
+                    </div>
+                `;
+            }
+
+            function filterProjects(category) {
+                projectsGrid.innerHTML = ''; // Limpa o grid
+                
+                const filteredProjects = category === 'TODOS'
+                    ? PROJECTS_DATA
+                    : PROJECTS_DATA.filter(p => p.category === category);
+
+                if (filteredProjects.length === 0) {
+                     projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
+                     return;
+                }
+                
+                filteredProjects.forEach(project => {
+                    projectsGrid.innerHTML += createProjectCard(project);
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-filter');
+                    
+                    // Atualiza a classe 'active' dos botões
+                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-ufpe-red', 'text-white', 'shadow-md'));
+                    filterButtons.forEach(btn => btn.classList.add('bg-gray-300', 'text-cinza_escuro'));
+                    
+                    button.classList.add('active', 'bg-ufpe-red', 'text-white', 'shadow-md');
+                    button.classList.remove('bg-gray-300', 'text-cinza_escuro');
+
+                    filterProjects(category);
+                });
+            });
+
+            // Inicializa a seção de Projetos mostrando TODOS os projetos
+            filterProjects('TODOS');
+            
+            // 3. --- LÓGICA DA PÁGINA EQUIPE ---
+            const teamData = [
+                {
+                    title: "Comunicação e Informação",
+                    description: "Responsável pela gestão estratégica da comunicação institucional, coordenação dos bureaus e planejamento de ações integradas.",
+                    color: "bureau-purple",
+                    members: [
+                        { name: "Nara Cavalcanti", role: "Coordenação de I&C", photoUrl: "assets/fotos/nara.jpg" },
+                        { name: "Demócrito da Silva", role: "Gestor de Mídias", photoUrl: "assets/fotos/democrito.jpg" },
+                        { name: "Vinicius Gabriel", role: "Estagiário de I&C", photoUrl: "assets/fotos/vinicius.jpg" },
+                    ]
+                },
+                {
+                    title: "Bureau Audiovisual",
+                    description: "Produção de vídeos institucionais, documentários, motion graphics, cobertura fotográfica de eventos e conexão audiovisual estratégica.",
+                    color: "bureau-blue",
+                    members: [
+                        { name: "Luis Felipe de Freitas", role: "Coordenação do BV", photoUrl: "assets/fotos/luis_felipe.jpg" },
+                        { name: "Luiz Cauê Ribeiro", role: "Assistente BV", photoUrl: "assets/fotos/luiz_caue.jpg" },
+                    ]
+                },
+                {
+                    title: "Bureau Editorial",
+                    description: "Produção editorial, copywriting, revisão textual e gestão de publicações institucionais e comunicação estratégica.",
+                    color: "bureau-green",
+                    members: [
+                        { name: "Artur Villaça Franco", role: "Assistente Editorial", photoUrl: "assets/fotos/artur.jpg" },
+                        { name: "José Carlos", role: "Revisor de Conteúdo", photoUrl: "assets/fotos/jose_carlos.jpg" },
+                        { name: "Laura", role: "Revisora de Redação", photoUrl: "assets/fotos/laura.jpg" },
+                    ]
+                },
+                {
+                    title: "Bureau de Design",
+                    description: "Desenvolvimento de identidade visual, design gráfico, materiais institucionais e interfaces digitais. Traduzimos a essência acadêmica em linguagem visual contemporânea.",
+                    color: "ufpe-red",
+                    members: [
+                        { name: "Anderson Carvalho", role: "Coordenador Design", photoUrl: "assets/fotos/anderson.jpg" },
+                        { name: "Simone Germano", role: "Designer Gráfico", photoUrl: "assets/fotos/simone.jpg" },
+                        { name: "Evandro Santada", role: "Estagiário Design Conteúdo", photoUrl: "assets/fotos/evandro.jpg" },
+                        { name: "João Victor", role: "Assistente de Produção", photoUrl: "assets/fotos/joao_victor.jpg" },
+                    ]
+                }
+            ];
+
+            function createMemberCard(name, role, color, photoUrl) {
+                const nameParts = name.split(' ');
+                const initials = (nameParts[0][0] + (nameParts.length > 1 ? nameParts[1][0] : '')).toUpperCase();
+                
+                // Define classes de cor para o placeholder
+                const colorClasses = {
+                    'bureau-purple': 'from-bureau-purple-600 to-bureau-purple-400',
+                    'bureau-blue': 'from-bureau-blue-600 to-bureau-blue-400',
+                    'bureau-green': 'from-bureau-green-600 to-bureau-green-400',
+                    'ufpe-red': 'from-ufpe-red-600 to-ufpe-red-400',
+                };
+                const gradientClass = colorClasses[color] || 'from-gray-600 to-gray-400';
+                
+                let avatarContent;
+                if (photoUrl && photoUrl !== 'assets/fotos/placeholder.jpg') {
+                    // Se houver URL de foto
+                    avatarContent = `<img src="${photoUrl}" alt="Foto de ${name}" class="team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase object-cover border-4 border-white shadow-lg" onerror="this.onerror=null; this.classList.add('bg-gray-400', 'text-white', 'text-xl', 'font-bold'); this.style.backgroundColor = '#8B0000'; this.style.backgroundImage = 'none'; this.alt='Foto indisponível'; this.outerHTML = '<div class=\\'team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase bg-ufpe-red border-4 border-white shadow-lg\\'>${initials}</div>';" />`;
+                } else {
+                    // Placeholder com iniciais e gradiente
+                    avatarContent = `
+                        <div class="team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase 
+                            bg-gradient-to-br ${gradientClass} border-4 border-white shadow-lg">
+                            ${initials}
+                        </div>
+                    `;
+                }
+
+
+                return `
+                    <div class="team-card p-4 bg-white rounded-xl shadow-lg border border-gray-200 text-center transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1">
+                        <div class="flex flex-col items-center">
+                            ${avatarContent}
+                            <h4 class="text-xl font-bold text-gray-900 mb-1">${name}</h4>
+                            <p class="text-sm text-${color} font-medium uppercase tracking-widest">${role}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderTeamSection(title, description, members, color) {
+                const memberCards = members.map(m => createMemberCard(m.name, m.role, color, m.photoUrl)).join('');
+                const sectionColor = color === 'ufpe-red' ? 'ufpe-red' : (color === 'bureau-blue' ? 'bureau-blue' : (color === 'bureau-green' ? 'bureau-green' : 'bureau-purple'));
+
+                return `
+                    <div class="mb-16">
+                        <div class="flex justify-between items-center mb-6 border-b border-gray-300 pb-2">
+                            <h3 class="text-2xl font-bold text-cinza_escuro font-display">${title}</h3>
+                            <span class="bg-${sectionColor} text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">${title.split(' ')[1] || title.toUpperCase()}</span>
+                        </div>
+                        <p class="text-gray-600 mb-8 max-w-4xl">${description}</p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            ${memberCards}
+                        </div>
+                    </div>
+                `;
+            }
+
+            const teamContainer = document.getElementById('team-sections-container');
+            if (teamContainer) {
+                teamContainer.innerHTML = teamData.map(section => 
+                    renderTeamSection(section.title, section.description, section.members, section.color)
+                ).join('');
+            }
+
+
+            // 4. --- LÓGICA DA PÁGINA CONEXÕES (EXPANSÃO) ---
+            const CONNECTIONS_DATA = [
+                { name: "Projeto de Pesquisa Alpha", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o Depto. de Comunicação." },
+                { name: "Evento Beta", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o Reitorado da UFPE." },
+                { name: "Campanha Institucional Gama", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o NTI." },
+                { name: "Projeto de Cultura Delta", description: "Campanha desenvolvida em parceria com a Pró-Reitoria de Extensão e Cultura (PROEXT)." },
+                { name: "Mídia Social Epsilon", description: "Estratégia de conteúdo em parceria com o CCI." },
+                { name: "Documentário Zeta", description: "Produção audiovisual em conjunto com o Depto. de História e Comunicação." },
+                { name: "Identidade Visual Eta", description: "Desenvolvimento de marca para um projeto do Centro de Artes e Comunicação (CAC)." },
+                { name: "Acervo Teta", description: "Digitalização e organização de acervo em parceria com a Biblioteca Central." },
+                { name: "Iniciativa Iota", description: "Projeto de comunicação inovadora com a Incubadora de Empresas." },
+                { name: "Consultoria Kappa", description: "Consultoria em design para a Faculdade de Direito do Recife (FDR)." },
+                { name: "Workshop Lambda", description: "Organização de evento e cobertura em parceria com a Pró-Reitoria de Pós-Graduação." },
+                { name: "Comunicação Mú", description: "Criação de vídeos e materiais gráficos para o Centro de Ciências Exatas (CCE)." }
+            ];
+
+            const INITIAL_DISPLAY_COUNT = 3;
+            let isConnectionsExpanded = false; // Variável renomeada para evitar conflito
+
+            function createConnectionCard(connection) {
+                // Simulação de cores dinâmicas
+                const colorIndex = connection.name.length % 3;
+                const colors = ['bg-ufpe-red/10', 'bg-bureau-blue/10', 'bg-bureau-green/10'];
+                const textColor = ['text-ufpe-red', 'text-bureau-blue', 'text-bureau-green'];
+
+                return `
+                    <div class="card-item bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                        <!-- Placeholder de Imagem -->
+                        <div class="h-48 ${colors[colorIndex]} flex items-center justify-center text-gray-600 border-b-2 border-ufpe-red/50">
+                            <span class="text-3xl font-display font-semibold ${textColor[colorIndex]}">PARCEIRO</span>
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-bold text-cinza_escuro mb-2">${connection.name}</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                ${connection.description}
+                            </p>
+                            <a href="#" class="inline-block mt-4 text-ufpe-red font-semibold text-sm hover:text-ufpe-red-light transition-colors">
+                                Ver Detalhes &rarr;
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderConnections() {
+                const gridContainer = document.getElementById('connections-grid');
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                const loadMoreContainer = document.getElementById('load-more-container');
+                
+                // Determina quantos cards mostrar
+                const connectionsToShow = isConnectionsExpanded ? CONNECTIONS_DATA : CONNECTIONS_DATA.slice(0, INITIAL_DISPLAY_COUNT);
+                
+                gridContainer.innerHTML = connectionsToShow.map(createConnectionCard).join('');
+                
+                // Esconde/mostra o botão
+                if (CONNECTIONS_DATA.length <= INITIAL_DISPLAY_COUNT) {
+                    loadMoreContainer.classList.add('hidden');
+                } else {
+                    loadMoreContainer.classList.remove('hidden');
+                    loadMoreBtn.textContent = isConnectionsExpanded ? 'Ver Menos Conexões' : 'Ver Todas as Conexões';
+                }
+
+                const allCards = gridContainer.querySelectorAll('.card-item');
+                allCards.forEach(card => {
+                    card.classList.add('animate-fade-in-up');
+                });
+            }
+
+            // Lógica do botão de expansão
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    isConnectionsExpanded = !isConnectionsExpanded;
+                    renderConnections();
+                    
+                    if (isConnectionsExpanded) {
+                        const section = document.getElementById('conexoes');
+                        section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+                renderConnections(); // Inicializa a renderização
+            }
+            
+            // 5. Lógica de Scroll Suave para âncoras (Home/Menu)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
