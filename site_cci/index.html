@@ -39,6 +39,7 @@
         }
     </script>
 
+
     <!-- CSS Customizado -->
     <style>
         body { font-family: 'Work Sans', sans-serif; background-color: #f7f7f7; }
@@ -62,9 +63,29 @@
              box-shadow: 0 0 0 4px #fff, 0 0 0 6px #7b1fa2; /* Borda muda no hover */
              transform: scale(1.05);
         }
+
+        /* --- CORREÇÃO DE ENQUADRAMENTO (SCROLL OFFSET) --- */
+        /* Aplica um padding-top invisível para compensar a altura fixa do navbar */
+        .scroll-offset::before {
+            content: "";
+            display: block;
+            /* Altura do Navbar Fixo */
+            height: 100px; /* Para desktop */
+            margin-top: -100px; 
+            visibility: hidden;
+            pointer-events: none;
+        }
+        @media (max-width: 1023px) { /* Para mobile e tablet */
+            .scroll-offset::before {
+                height: 90px;
+                margin-top: -90px;
+            }
+        }
     </style>
 </head>
 <body class="pt-[90px] lg:pt-[100px] scroll-smooth"> 
+
+
     
     <!-- ======================================== NAVBAR (MENU) ======================================== -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-cinza_escuro text-white shadow-lg">
@@ -78,12 +99,13 @@
                 
                 <!-- Menu Desktop -->
                 <ul class="hidden lg:flex space-x-8 text-sm">
-                    <li><a href="#hero" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Home</a></li>
-                    <li><a href="#sobre" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Sobre Nós</a></li>
-                    <li><a href="#servicos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Serviços</a></li>
-                    <li><a href="#projetos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Projetos</a></li>
-                    <li><a href="#equipe" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Equipe</a></li>
-                    <li><a href="#conexoes" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth">Nossas Conexões</a></li>
+                    <!-- ADDED CLASS: nav-link (for JS to target) -->
+                    <li><a href="#hero" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Home</a></li>
+                    <li><a href="#sobre" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Sobre Nós</a></li>
+                    <li><a href="#servicos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Serviços</a></li>
+                    <li><a href="#projetos" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Projetos</a></li>
+                    <li><a href="#equipe" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Equipe</a></li>
+                    <li><a href="#conexoes" class="hover:text-ufpe-red transition-colors duration-300 font-medium scroll-smooth nav-link">Nossas Conexões</a></li>
                 </ul>
                 
                 <!-- Botão Mobile Menu -->
@@ -96,18 +118,19 @@
 
             <!-- Menu Mobile (Dropdown) -->
             <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-2 text-base">
-                <a href="#hero" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Home</a>
-                <a href="#sobre" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Sobre Nós</a>
-                <a href="#servicos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Serviços</a>
-                <a href="#projetos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Projetos</a>
-                <a href="#equipe" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Equipe</a>
-                <a href="#conexoes" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth">Nossas Conexões</a>
+                <!-- ADDED CLASS: mobile-nav-link (for JS to target) -->
+                <a href="#hero" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Home</a>
+                <a href="#sobre" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Sobre Nós</a>
+                <a href="#servicos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Serviços</a>
+                <a href="#projetos" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Projetos</a>
+                <a href="#equipe" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Equipe</a>
+                <a href="#conexoes" class="block py-2 hover:text-ufpe-red transition-colors scroll-smooth mobile-nav-link">Nossas Conexões</a>
             </div>
         </div>
     </nav>
 
 <!-- ========================================  HERO SECTION (HOME)  ======================================== -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden scroll-offset">
         
         <!-- Background com Overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90"></div>
@@ -123,15 +146,7 @@
                 Somos especialistas em comunicação estratégica, design e projetos que geram impacto real
             </p>
             
-            <!-- Botões -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projetos" class="bg-ufpe-red text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-ufpe-red-light transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl scroll-smooth">
-                    Ver Projetos
-                </a>
-                <a href="#equipe" class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl scroll-smooth">
-                    Conhecer Equipe
-                </a>
-            </div>
+            <!-- Botões (Retirado do bloco original para simplificação) -->
         </div>
         
         <!-- Scroll Indicator -->
@@ -143,8 +158,8 @@
     </section>
 
 <!-- ======================================== SOBRE NÓS / LOGO INSTITUCIONAL + LOGOS BUREAUS ======================================== -->
-   
-      <section class="py-20 bg-white">
+    
+      <section id="sobre" class="py-20 bg-white scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <div class="text-center mb-16">
@@ -209,7 +224,7 @@
 
     
     <!-- ======================================== SERVIÇOS SECTION ======================================== -->
-    <section id="servicos" class="py-12 md:py-20 bg-cinza_claro">
+    <section id="servicos" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <!-- Título e Subtítulo -->
@@ -223,57 +238,57 @@
                 <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
             </div>
 
-            <!-- Grid de Cards de Serviço (Atualizado) -->
+            <!-- Grid de Cards de Serviço (Corrigido para alinhamento vertical) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
                 <!-- Card 1: Design/Visual -->
-                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                         <i data-lucide="star" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Qualidade Visual
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
                         Criação de identidade visual e design gráfico para projetos
                     </p>
                 </div>
 
                 <!-- Card 2: Audiovisual -->
-                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                         <i data-lucide="video" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Produção Profissional
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
                         Desenvolvimento de vídeos, documentários e cobertura fotográfica
                     </p>
                 </div>
 
                 <!-- Card 3: Editorial/Textual -->
-                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0">
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                         <i data-lucide="pencil-line" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Escrita Criativa
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
                         Conteúdo estratégico, revisão e publicações institucionais
                     </p>
                 </div>
 
                 <!-- Card 4: Gestão Estratégica (Novo) -->
-                <div class="flex flex-col items-center text-center p-6 border-gray-200">
+                <div class="flex flex-col items-center text-center p-6 border-gray-200 h-full">
                     <div class="mb-4">
                         <i data-lucide="layers" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Gestão de Campanhas
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed max-w-[200px] mx-auto">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
                         Integração de mídias e coordenação de ações para a PROEXT
                     </p>
                 </div>
@@ -330,7 +345,7 @@
     </section>
 
     <!-- ======================================== PROJETOS SECTION ======================================== -->
-    <section id="projetos" class="py-12 md:py-20 bg-white">
+    <section id="projetos" class="py-12 md:py-20 bg-white scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <!-- Título Principal -->
@@ -409,8 +424,8 @@
         </div>
     </section>
     
-    <!-- ======================================== EQUIPE SECTION ======================================== -->
-    <section id="equipe" class="py-12 md:py-20 bg-cinza_claro">
+    <!-- ======================================== NOSSA EQUIPE SECTION ======================================== -->
+    <section id="equipe" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <!-- Título Principal -->
@@ -419,7 +434,7 @@
                     Equipe
                 </h2>
                 <p class="text-lg text-gray-600 max-w-4xl mx-auto">
-                    Conheça o nosso time dividido em 3 frentes de atuação
+                    Conheça o nosso <span class="text-ufpe-red"><b>time</b></span> dividido em 3 frentes de atuação
                 </p>
                 <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
             </div>
@@ -432,7 +447,7 @@
     </section>
 
     <!-- ======================================== CONEXÕES SECTION ======================================== -->
-    <section id="conexoes" class="py-12 md:py-20 bg-white">
+    <section id="conexoes" class="py-12 md:py-20 bg-white scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <!-- Título Principal -->
@@ -563,9 +578,9 @@
                     description: "Responsável pela gestão estratégica da comunicação institucional, coordenação dos bureaus e planejamento de ações integradas.",
                     color: "bureau-purple",
                     members: [
-                        { name: "Nara Cavalcanti", role: "Coordenação de I&C", photoUrl: "assets/fotos/nara.jpg" },
-                        { name: "Demócrito da Silva", role: "Gestor de Mídias", photoUrl: "assets/fotos/democrito.jpg" },
-                        { name: "Vinicius Gabriel", role: "Estagiário de I&C", photoUrl: "assets/fotos/vinicius.jpg" },
+                        { name: "Nara Cavalcanti", role: "Coordenadora da CCI", photoUrl: "assets/fotos/nara.jpg" },
+                        { name: "Demócrito da Silva", role: "Social Media", photoUrl: "assets/fotos/democrito.jpg" },
+                        { name: "Vinicius Gabriel", role: "Estagiário de TI", photoUrl: "assets/fotos/vinicius.jpg" },
                     ]
                 },
                 {
@@ -573,8 +588,8 @@
                     description: "Produção de vídeos institucionais, documentários, motion graphics, cobertura fotográfica de eventos e conexão audiovisual estratégica.",
                     color: "bureau-blue",
                     members: [
-                        { name: "Luis Felipe de Freitas", role: "Coordenação do BV", photoUrl: "assets/fotos/luis_felipe.jpg" },
-                        { name: "Luiz Cauê Ribeiro", role: "Assistente BV", photoUrl: "assets/fotos/luiz_caue.jpg" },
+                        { name: "Luis Felipe de Freitas", role: "Bolsista/Estudante de RTI", photoUrl: "assets/fotos/luis_felipe.jpg" },
+                        { name: "Luiz Cauê Ribeiro", role: "Bolsista/Estudante de RTI", photoUrl: "assets/fotos/luiz_caue.jpg" },
                     ]
                 },
                 {
@@ -582,9 +597,9 @@
                     description: "Produção editorial, copywriting, revisão textual e gestão de publicações institucionais e comunicação estratégica.",
                     color: "bureau-green",
                     members: [
-                        { name: "Artur Villaça Franco", role: "Assistente Editorial", photoUrl: "assets/fotos/artur.jpg" },
-                        { name: "José Carlos", role: "Revisor de Conteúdo", photoUrl: "assets/fotos/jose_carlos.jpg" },
-                        { name: "Laura", role: "Revisora de Redação", photoUrl: "assets/fotos/laura.jpg" },
+                        { name: "Artur Villaça Franco", role: "Assistente editorial", photoUrl: "assets/fotos/artur.jpg" },
+                        { name: "José Carlos", role: "Bolsista de Revisão", photoUrl: "assets/fotos/jose_carlos.jpg" },
+                        { name: "Laura", role: "Bolsista de Revisão", photoUrl: "assets/fotos/laura.jpg" },
                     ]
                 },
                 {
@@ -592,10 +607,10 @@
                     description: "Desenvolvimento de identidade visual, design gráfico, materiais institucionais e interfaces digitais. Traduzimos a essência acadêmica em linguagem visual contemporânea.",
                     color: "ufpe-red",
                     members: [
-                        { name: "Anderson Carvalho", role: "Coordenador Design", photoUrl: "assets/fotos/anderson.jpg" },
-                        { name: "Simone Germano", role: "Designer Gráfico", photoUrl: "assets/fotos/simone.jpg" },
-                        { name: "Evandro Santada", role: "Estagiário Design Conteúdo", photoUrl: "assets/fotos/evandro.jpg" },
-                        { name: "João Victor", role: "Assistente de Produção", photoUrl: "assets/fotos/joao_victor.jpg" },
+                        { name: "Anderson Carvalho", role: "Programador Visual", photoUrl: "assets/fotos/anderson.jpg" },
+                        { name: "Simone Germano", role: "Programadora visual", photoUrl: "assets/fotos/simone.jpg" },
+                        { name: "Evandro Santada", role: "Bolsista/ Estudante de Design", photoUrl: "assets/fotos/evandro.jpg" },
+                        { name: "João Victor", role: "Bolsista/Estudante de Publicidade", photoUrl: "assets/fotos/joao_victor.jpg" },
                     ]
                 }
             ];
@@ -627,13 +642,18 @@
                     `;
                 }
 
+                // Renderiza o cargo dentro de um badge
+                const badgeColor = color === 'ufpe-red' ? 'ufpe-red' : (color === 'bureau-blue' ? 'bureau-blue' : (color === 'bureau-green' ? 'bureau-green' : 'bureau-purple'));
+
 
                 return `
                     <div class="team-card p-4 bg-white rounded-xl shadow-lg border border-gray-200 text-center transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1">
                         <div class="flex flex-col items-center">
                             ${avatarContent}
-                            <h4 class="text-xl font-bold text-gray-900 mb-1">${name}</h4>
-                            <p class="text-sm text-${color} font-medium uppercase tracking-widest">${role}</p>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">${name}</h4>
+                            <span class="inline-block bg-gray-100 text-${badgeColor} text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                                ${role}
+                            </span>
                         </div>
                     </div>
                 `;
@@ -641,13 +661,13 @@
 
             function renderTeamSection(title, description, members, color) {
                 const memberCards = members.map(m => createMemberCard(m.name, m.role, color, m.photoUrl)).join('');
-                const sectionColor = color === 'ufpe-red' ? 'ufpe-red' : (color === 'bureau-blue' ? 'bureau-blue' : (color === 'bureau-green' ? 'bureau-green' : 'bureau-purple'));
-
+                
+                // Note: O badge da seção foi removido aqui intencionalmente, conforme solicitado.
+                
                 return `
                     <div class="mb-16">
                         <div class="flex justify-between items-center mb-6 border-b border-gray-300 pb-2">
                             <h3 class="text-2xl font-bold text-cinza_escuro font-display">${title}</h3>
-                            <span class="bg-${sectionColor} text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">${title.split(' ')[1] || title.toUpperCase()}</span>
                         </div>
                         <p class="text-gray-600 mb-8 max-w-4xl">${description}</p>
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -752,9 +772,26 @@
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    
+                    // Fechamento do menu mobile ao clicar em um link (se estiver aberto)
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+
+                    // Rolagem suave com correção de offset (navbar height)
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offset = window.innerWidth >= 1024 ? 100 : 90; // Altura do navbar
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
                 });
             });
 
