@@ -12,6 +12,9 @@
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ico do site  -->
+<link rel="icon" type="image/x-icon" href="assets/CCI-branco_ico.ico">
     
     <!-- Lucide Icons CDN (Usado para a página de Serviços) -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -148,13 +151,6 @@
             
             <!-- Botões (Retirado do bloco original para simplificação) -->
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
     </section>
 
 <!-- ======================================== SOBRE NÓS / LOGO INSTITUCIONAL + LOGOS BUREAUS ======================================== -->
@@ -238,7 +234,7 @@
                 <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
             </div>
 
-            <!-- Grid de Cards de Serviço (Corrigido para alinhamento vertical) -->
+            <!-- Grid de Cards de Serviço (Corrigido para alinhamento vertical/horizontal) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
                 <!-- Card 1: Design/Visual -->
@@ -249,7 +245,8 @@
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Qualidade Visual
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
+                    <!-- Alteração: Removida a limitação de max-w e flex-grow/items-start para alinhamento horizontal -->
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto">
                         Criação de identidade visual e design gráfico para projetos
                     </p>
                 </div>
@@ -262,7 +259,7 @@
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Produção Profissional
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto">
                         Desenvolvimento de vídeos, documentários e cobertura fotográfica
                     </p>
                 </div>
@@ -275,7 +272,7 @@
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Escrita Criativa
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto">
                         Conteúdo estratégico, revisão e publicações institucionais
                     </p>
                 </div>
@@ -288,7 +285,7 @@
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
                         Gestão de Campanhas
                     </h3>
-                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto flex-grow flex items-start justify-center">
+                    <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto">
                         Integração de mídias e coordenação de ações para a PROEXT
                     </p>
                 </div>
@@ -496,25 +493,65 @@
             { id: 9, title: "Artigo Científico Design", category: "EDITORIAL", subcategory: "Editorial" },
             { id: 10, title: "Cobertura Congresso", category: "AUDIOVISUAL", subcategory: "Eventos" },
         ];
+        
+        // Dados de Mockup para Conexões (Adicionado logoUrl)
+        const CONNECTIONS_DATA = [
+            { name: "UFPE No Meu Quintal", description: "Parceria com o Depto. de Comunicação.", logoUrl: "assets/ufpe_no_quintal.png" },
+            { name: "Projeto amamentar", description: "Parceria com o Reitorado da UFPE.", logoUrl: "assets/marca_proama.png" },
+            { name: "Projeto Realidades", description: "Parceria com o NTI.", logoUrl: "assets/marca_realidades.png" },
+            { name: "Projeto Rádio Cordel", description: "Parceria com a Pró-Reitoria de Extensão (PROEXT).", logoUrl: "assets/marca_radio_cordel.png" },
+            { name: "Projeto Ecomangue", description: "Estratégia de conteúdo em parceria com o CCI.", logoUrl: "assets/marca_ecomangue.png" },
+            { name: "Projeto Rádio Migra", description: "Produção audiovisual em conjunto com o Depto. de História.", logoUrl: "assets/marca_radio_migra.png" },
+            { name: "Identidade Visual Eta", description: "Desenvolvimento de marca para o Centro de Artes (CAC).", logoUrl: "https://placehold.co/180x100/6A1B9A/FFFFFF?text=LOGO+CAC" },
+            { name: "Acervo Teta", description: "Digitalização e organização de acervo com a Biblioteca Central.", logoUrl: "https://placehold.co/180x100/004D40/FFFFFF?text=LOGO+BC" },
+            { name: "Iniciativa Iota", description: "Projeto com a Incubadora de Empresas.", logoUrl: "https://placehold.co/180x100/C62828/FFFFFF?text=LOGO+IE" },
+            { name: "Consultoria Kappa", description: "Consultoria em design para a Faculdade de Direito.", logoUrl: "https://placehold.co/180x100/FF8F00/FFFFFF?text=LOGO+FDR" },
+            { name: "Workshop Lambda", description: "Organização de evento com a Pró-Reitoria de Pós-Graduação.", logoUrl: "https://placehold.co/180x100/424242/FFFFFF?text=LOGO+PROPG" },
+            { name: "Comunicação Mú", description: "Criação de materiais para o Centro de Ciências Exatas (CCE).", logoUrl: "https://placehold.co/180x100/0277BD/FFFFFF?text=LOGO+CCE" }
+        ];
 
+        // Variáveis globais para Conexões
+        const INITIAL_DISPLAY_COUNT = 3;
+        let isConnectionsExpanded = false;
 
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // 1. Lógica do Menu Mobile
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            // Inicializa ícones Lucide (para Serviços)
-            lucide.createIcons();
+            // --- FUNÇÕES DE SETUP E UTILS ---
 
-            // 2. --- LÓGICA DA PÁGINA PROJETOS (FILTRAGEM) ---
+            // 1. Lógica do Menu Mobile (Fechamento e Abertura)
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            lucide.createIcons(); // Inicializa ícones Lucide (para Serviços)
+
+            // Função de Scroll Otimizada
+            const smoothScrollWithOffset = (targetId, closeMenu = true) => {
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+
+                if (closeMenu) mobileMenu.classList.add('hidden');
+
+                const offset = window.innerWidth >= 1024 ? 100 : 90;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            };
+
+            // Aplica o Scroll Otimizado aos links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    smoothScrollWithOffset(this.getAttribute('href'));
+                });
+            });
+
+            // --- 2. LÓGICA DA PÁGINA PROJETOS (FILTRAGEM) ---
 
             const projectsGrid = document.getElementById('projects-grid');
             const filterButtons = document.querySelectorAll('.filter-button');
 
-            function createProjectCard(project) {
+            const createProjectCard = (project) => {
                 const colorMap = {
                     'DESIGN': 'ufpe-red/70',
                     'AUDIOVISUAL': 'bureau-blue/70',
@@ -530,48 +567,42 @@
                             <p class="text-xs text-gray-400">${project.category} - ${project.subcategory}</p>
                         </div>
                         <div class="absolute inset-0 bg-gradient-to-t from-${primaryColor} to-cinza_escuro/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <!-- Link mock-up -->
                         <a href="#" class="absolute inset-0 z-10"></a>
                     </div>
                 `;
-            }
+            };
 
-            function filterProjects(category) {
-                projectsGrid.innerHTML = ''; // Limpa o grid
-                
-                const filteredProjects = category === 'TODOS'
-                    ? PROJECTS_DATA
-                    : PROJECTS_DATA.filter(p => p.category === category);
+            const filterProjects = (category) => {
+                projectsGrid.innerHTML = '';
+                const filteredProjects = category === 'TODOS' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.category === category);
 
                 if (filteredProjects.length === 0) {
                      projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
                      return;
                 }
                 
-                filteredProjects.forEach(project => {
-                    projectsGrid.innerHTML += createProjectCard(project);
-                });
-            }
+                filteredProjects.forEach(project => projectsGrid.innerHTML += createProjectCard(project));
+            };
 
             filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.getAttribute('data-filter');
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-filter');
                     
-                    // Atualiza a classe 'active' dos botões
-                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-ufpe-red', 'text-white', 'shadow-md'));
-                    filterButtons.forEach(btn => btn.classList.add('bg-gray-300', 'text-cinza_escuro'));
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-ufpe-red', 'text-white', 'shadow-md');
+                        btn.classList.add('bg-gray-300', 'text-cinza_escuro');
+                    });
                     
-                    button.classList.add('active', 'bg-ufpe-red', 'text-white', 'shadow-md');
-                    button.classList.remove('bg-gray-300', 'text-cinza_escuro');
+                    this.classList.add('active', 'bg-ufpe-red', 'text-white', 'shadow-md');
+                    this.classList.remove('bg-gray-300', 'text-cinza_escuro');
 
                     filterProjects(category);
                 });
             });
 
-            // Inicializa a seção de Projetos mostrando TODOS os projetos
-            filterProjects('TODOS');
-            
-            // 3. --- LÓGICA DA PÁGINA EQUIPE ---
+            filterProjects('TODOS'); // Inicializa a seção de Projetos
+
+            // 3. --- LÓGICA DA PÁGINA EQUIPE (Renderização) ---
             const teamData = [
                 {
                     title: "Comunicação e Informação",
@@ -579,7 +610,7 @@
                     color: "bureau-purple",
                     members: [
                         { name: "Nara Cavalcanti", role: "Coordenadora da CCI", photoUrl: "assets/fotos/nara.jpg" },
-                        { name: "Demócrito da Silva", role: "Social Media", photoUrl: "assets/fotos/democrito.jpg" },
+                        { name: "Demócrito da Silva", role: "Gestor de Mídias", photoUrl: "assets/fotos/democrito.jpg" },
                         { name: "Vinicius Gabriel", role: "Estagiário de TI", photoUrl: "assets/fotos/vinicius.jpg" },
                     ]
                 },
@@ -599,7 +630,7 @@
                     members: [
                         { name: "Artur Villaça Franco", role: "Assistente editorial", photoUrl: "assets/fotos/artur.jpg" },
                         { name: "José Carlos", role: "Bolsista de Revisão", photoUrl: "assets/fotos/jose_carlos.jpg" },
-                        { name: "Laura", role: "Bolsista de Revisão", photoUrl: "assets/fotos/laura.jpg" },
+                        { name: "Laura", role: "Revisora de Redação", photoUrl: "assets/fotos/laura.jpg" },
                     ]
                 },
                 {
@@ -615,11 +646,10 @@
                 }
             ];
 
-            function createMemberCard(name, role, color, photoUrl) {
+            const createMemberCard = (name, role, color, photoUrl) => {
                 const nameParts = name.split(' ');
                 const initials = (nameParts[0][0] + (nameParts.length > 1 ? nameParts[1][0] : '')).toUpperCase();
                 
-                // Define classes de cor para o placeholder
                 const colorClasses = {
                     'bureau-purple': 'from-bureau-purple-600 to-bureau-purple-400',
                     'bureau-blue': 'from-bureau-blue-600 to-bureau-blue-400',
@@ -628,23 +658,16 @@
                 };
                 const gradientClass = colorClasses[color] || 'from-gray-600 to-gray-400';
                 
-                let avatarContent;
-                if (photoUrl && photoUrl !== 'assets/fotos/placeholder.jpg') {
-                    // Se houver URL de foto
-                    avatarContent = `<img src="${photoUrl}" alt="Foto de ${name}" class="team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase object-cover border-4 border-white shadow-lg" onerror="this.onerror=null; this.classList.add('bg-gray-400', 'text-white', 'text-xl', 'font-bold'); this.style.backgroundColor = '#8B0000'; this.style.backgroundImage = 'none'; this.alt='Foto indisponível'; this.outerHTML = '<div class=\\'team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase bg-ufpe-red border-4 border-white shadow-lg\\'>${initials}</div>';" />`;
-                } else {
-                    // Placeholder com iniciais e gradiente
-                    avatarContent = `
+                const avatarContent = (photoUrl && photoUrl !== 'assets/fotos/placeholder.jpg') 
+                    ? `<img src="${photoUrl}" alt="Foto de ${name}" class="team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase object-cover border-4 border-white shadow-lg" onerror="this.onerror=null; this.classList.add('bg-gray-400', 'text-white', 'text-xl', 'font-bold'); this.style.backgroundColor = '#8B0000'; this.style.backgroundImage = 'none'; this.alt='Foto indisponível'; this.outerHTML = '<div class=\\'team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase bg-ufpe-red border-4 border-white shadow-lg\\'>${initials}</div>';" />`
+                    : `
                         <div class="team-avatar w-24 h-24 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold uppercase 
                             bg-gradient-to-br ${gradientClass} border-4 border-white shadow-lg">
                             ${initials}
                         </div>
                     `;
-                }
 
-                // Renderiza o cargo dentro de um badge
-                const badgeColor = color === 'ufpe-red' ? 'ufpe-red' : (color === 'bureau-blue' ? 'bureau-blue' : (color === 'bureau-green' ? 'bureau-green' : 'bureau-purple'));
-
+                const badgeColor = color; // Cor do texto do badge é a cor do Bureau
 
                 return `
                     <div class="team-card p-4 bg-white rounded-xl shadow-lg border border-gray-200 text-center transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1">
@@ -657,12 +680,10 @@
                         </div>
                     </div>
                 `;
-            }
+            };
 
-            function renderTeamSection(title, description, members, color) {
+            const renderTeamSection = (title, description, members, color) => {
                 const memberCards = members.map(m => createMemberCard(m.name, m.role, color, m.photoUrl)).join('');
-                
-                // Note: O badge da seção foi removido aqui intencionalmente, conforme solicitado.
                 
                 return `
                     <div class="mb-16">
@@ -675,7 +696,7 @@
                         </div>
                     </div>
                 `;
-            }
+            };
 
             const teamContainer = document.getElementById('team-sections-container');
             if (teamContainer) {
@@ -686,115 +707,65 @@
 
 
             // 4. --- LÓGICA DA PÁGINA CONEXÕES (EXPANSÃO) ---
-            const CONNECTIONS_DATA = [
-                { name: "Projeto de Pesquisa Alpha", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o Depto. de Comunicação." },
-                { name: "Evento Beta", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o Reitorado da UFPE." },
-                { name: "Campanha Institucional Gama", description: "Breve descrição do projeto, evento ou campanha desenvolvida em parceria com o NTI." },
-                { name: "Projeto de Cultura Delta", description: "Campanha desenvolvida em parceria com a Pró-Reitoria de Extensão e Cultura (PROEXT)." },
-                { name: "Mídia Social Epsilon", description: "Estratégia de conteúdo em parceria com o CCI." },
-                { name: "Documentário Zeta", description: "Produção audiovisual em conjunto com o Depto. de História e Comunicação." },
-                { name: "Identidade Visual Eta", description: "Desenvolvimento de marca para um projeto do Centro de Artes e Comunicação (CAC)." },
-                { name: "Acervo Teta", description: "Digitalização e organização de acervo em parceria com a Biblioteca Central." },
-                { name: "Iniciativa Iota", description: "Projeto de comunicação inovadora com a Incubadora de Empresas." },
-                { name: "Consultoria Kappa", description: "Consultoria em design para a Faculdade de Direito do Recife (FDR)." },
-                { name: "Workshop Lambda", description: "Organização de evento e cobertura em parceria com a Pró-Reitoria de Pós-Graduação." },
-                { name: "Comunicação Mú", description: "Criação de vídeos e materiais gráficos para o Centro de Ciências Exatas (CCE)." }
-            ];
 
-            const INITIAL_DISPLAY_COUNT = 3;
-            let isConnectionsExpanded = false; // Variável renomeada para evitar conflito
+            const gridContainer = document.getElementById('connections-grid');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreContainer = document.getElementById('load-more-container');
 
-            function createConnectionCard(connection) {
-                // Simulação de cores dinâmicas
-                const colorIndex = connection.name.length % 3;
-                const colors = ['bg-ufpe-red/10', 'bg-bureau-blue/10', 'bg-bureau-green/10'];
-                const textColor = ['text-ufpe-red', 'text-bureau-blue', 'text-bureau-green'];
+            const createConnectionCard = (connection) => {
+                // Simulação de cores dinâmicas para o fundo do placeholder
+                const colorIndex = connection.name.length % 4;
+                const placeholderColors = ['8B0000', '1976d2', '388e3c', '7b1fa2'];
+                const bgColor = placeholderColors[colorIndex];
+                const logoUrl = connection.logoUrl || `https://placehold.co/200x100/${bgColor}/ffffff?text=LOGO`;
 
                 return `
                     <div class="card-item bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <!-- Placeholder de Imagem -->
-                        <div class="h-48 ${colors[colorIndex]} flex items-center justify-center text-gray-600 border-b-2 border-ufpe-red/50">
-                            <span class="text-3xl font-display font-semibold ${textColor[colorIndex]}">PARCEIRO</span>
+                        <!-- Placeholder de Imagem da Logo -->
+                        <div class="h-48 flex items-center justify-center p-4 border-b-2 border-ufpe-red/50">
+                            <img src="${logoUrl}" 
+                                 alt="Logo da Conexão ${connection.name}" 
+                                 class="max-h-full w-auto object-contain"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/200x100/F0F0F0/888888?text=Logo+Indisponível';"
+                            />
                         </div>
                         <div class="p-6 text-center">
                             <h3 class="text-xl font-bold text-cinza_escuro mb-2">${connection.name}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
                                 ${connection.description}
                             </p>
-                            <a href="#" class="inline-block mt-4 text-ufpe-red font-semibold text-sm hover:text-ufpe-red-light transition-colors">
-                                Ver Detalhes &rarr;
-                            </a>
+                            
                         </div>
                     </div>
                 `;
-            }
+            };
 
-            function renderConnections() {
-                const gridContainer = document.getElementById('connections-grid');
-                const loadMoreBtn = document.getElementById('load-more-btn');
-                const loadMoreContainer = document.getElementById('load-more-container');
-                
-                // Determina quantos cards mostrar
+            const renderConnections = () => {
                 const connectionsToShow = isConnectionsExpanded ? CONNECTIONS_DATA : CONNECTIONS_DATA.slice(0, INITIAL_DISPLAY_COUNT);
                 
                 gridContainer.innerHTML = connectionsToShow.map(createConnectionCard).join('');
                 
-                // Esconde/mostra o botão
+                // Gerencia a visibilidade e texto do botão
                 if (CONNECTIONS_DATA.length <= INITIAL_DISPLAY_COUNT) {
                     loadMoreContainer.classList.add('hidden');
                 } else {
                     loadMoreContainer.classList.remove('hidden');
                     loadMoreBtn.textContent = isConnectionsExpanded ? 'Ver Menos Conexões' : 'Ver Todas as Conexões';
                 }
-
-                const allCards = gridContainer.querySelectorAll('.card-item');
-                allCards.forEach(card => {
-                    card.classList.add('animate-fade-in-up');
-                });
-            }
+            };
 
             // Lógica do botão de expansão
-            const loadMoreBtn = document.getElementById('load-more-btn');
             if (loadMoreBtn) {
                 loadMoreBtn.addEventListener('click', () => {
                     isConnectionsExpanded = !isConnectionsExpanded;
                     renderConnections();
                     
                     if (isConnectionsExpanded) {
-                        const section = document.getElementById('conexoes');
-                        section.scrollIntoView({ behavior: 'smooth' });
+                        smoothScrollWithOffset('#conexoes', false);
                     }
                 });
                 renderConnections(); // Inicializa a renderização
             }
-            
-            // 5. Lógica de Scroll Suave para âncoras (Home/Menu)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    // Fechamento do menu mobile ao clicar em um link (se estiver aberto)
-                    if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                    }
-
-                    // Rolagem suave com correção de offset (navbar height)
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const offset = window.innerWidth >= 1024 ? 100 : 90; // Altura do navbar
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-                });
-            });
-
         });
     </script>
 </body>
