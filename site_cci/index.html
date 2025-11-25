@@ -129,6 +129,44 @@
         .hero-background-slide.active {
             opacity: 1;
         }
+        
+        /* --- CSS para a Trilha de Solicitação (Infográfico) --- */
+        .timeline-step {
+            position: relative;
+            z-index: 10;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 35px; /* Alinha com o centro dos ícones */
+            height: 4px;
+            background-color: #d1d5db; /* gray-300 */
+        }
+        .timeline-icon-container {
+            position: relative;
+            z-index: 20;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Efeito para a seta "Não" */
+        .rejection-arrow {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 25px;
+            background-color: #ef4444; /* red-500 */
+            z-index: 15;
+        }
+        .rejection-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -4px;
+            border-top: 5px solid #ef4444; /* red-500 */
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
     </style>
 </head>
 <body class="pt-[90px] lg:pt-[100px] scroll-smooth"> 
@@ -348,8 +386,72 @@
 
             </div>
             
+            <!-- NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO (INFOGRÁFICO) -->
+            <!-- Fundo removido (bg-white e shadow-lg) -->
+            <div class="max-w-6xl mx-auto mt-8 px-4 py-8 rounded-xl border border-gray-100">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl font-bold text-ufpe-red mb-1 font-display">
+                        Trilha de Solicitação
+                    </h3>
+                    <p class="text-gray-600 text-sm max-w-xl mx-auto">Entenda como sua demanda é processada pela equipe da CCI.</p>
+                </div>
+                
+                <!-- O FLUXO EM SI -->
+                <div class="flex justify-between relative w-full px-4 md:px-6">
+                    
+                    <!-- Linhas de Conexão -->
+                    <div class="timeline-line left-[20%] right-[60%] w-[20%]"></div>
+                    <!-- Linha de Aprovação (Sim) -->
+                    <div class="timeline-line bg-bureau-green left-[40%] right-[20%] w-[20%]"></div>
+                    <!-- Linha de Rejeição (Não) -->
+                    <div class="absolute top-[80px] left-[50%] transform -translate-x-1/2 w-0 h-0">
+                         <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-4 border-ufpe-red rounded-full"></div>
+                        <!-- Seta de queda vertical (NÃO) -->
+                        <div class="rejection-arrow h-12"></div>
+                    </div>
+                    
+                    <!-- Passo 1: Envio -->
+                    <div class="flex flex-col items-center w-1/4 text-center timeline-step">
+                        <div class="timeline-icon-container w-14 h-14 bg-ufpe-red rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">📧</div>
+                        <p class="text-xs font-bold text-cinza_escuro">1. Envio</p>
+                        <p class="text-[0.6rem] text-gray-500 mt-1">E-mail para o Bureau Específico</p>
+                    </div>
+
+                    <!-- Passo 2: Avaliação (Ramificação) -->
+                    <div class="flex flex-col items-center w-1/4 text-center timeline-step">
+                        <div class="timeline-icon-container w-14 h-14 bg-ufpe-red rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">🧑‍💻</div>
+                        <p class="text-xs font-bold text-cinza_escuro">2. Avaliação</p>
+                        <p class="text-[0.6rem] text-gray-500 mt-1">Prioridade e Viabilidade</p>
+                    </div>
+
+                    <!-- Passo 3: Produção (SIM) -->
+                    <div class="flex flex-col items-center w-1/4 text-center timeline-step">
+                        <div class="timeline-icon-container w-14 h-14 bg-bureau-green rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">🚀</div>
+                        <p class="text-xs font-bold text-bureau-green">3. SIM (Aprovado)</p>
+                        <p class="text-[0.6rem] text-gray-500 mt-1">Início da Produção</p>
+                    </div>
+
+                    <!-- Passo 4: Cadastro Reserva (NÃO) -->
+                    <div class="flex flex-col items-center w-1/4 text-center timeline-step">
+                        <div class="timeline-icon-container w-14 h-14 bg-gray-500 rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">🗂️</div>
+                        <p class="text-xs font-bold text-gray-700">3. NÃO (Cadastro)</p>
+                        <p class="text-[0.6rem] text-gray-500 mt-1">Cadastro Reserva</p>
+                    </div>
+                </div>
+                
+                <!-- Detalhes da Ramificação -->
+                <div class="flex justify-center mt-12 text-sm font-medium border-t pt-4 border-gray-200">
+                    <div class="text-center p-2 bg-red-100 rounded-lg border border-red-300">
+                        <span class="text-ufpe-red font-bold text-sm">JUSTIFICATIVA DO NÃO:</span> 
+                        <span class="text-gray-700 font-normal text-xs">Agenda Lotada, Falta de Briefing, ou Conflito de Prioridades.</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO -->
+
             <!-- Subseção de SOLICITAÇÃO E PRAZOS (CARROSSEL REESTRUTURADO) -->
-            <div class="mt-20 max-w-6xl mx-auto bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200">
+            <!-- Fundo removido (bg-white e shadow-2xl) -->
+            <div class="mt-6 max-w-6xl mx-auto p-6 md:p-10 rounded-xl border border-gray-200">
                 <h3 class="text-2xl font-bold text-cinza_escuro mb-6 border-b pb-2 font-display">
                     Prazos e Detalhes de Solicitação por Serviço
                 </h3>
@@ -364,12 +466,12 @@
                         <!-- SLIDE 1: SOCIAL MEDIA -->
                         <div class="carousel-item w-full shrink-0 p-4">
                             <!-- min-h reduzido para menor espaçamento vertical -->
-                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[350px]"> 
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]"> 
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="pen" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Divulgação de Notícias e Redes Sociais</h4>
                                 </div>
-                                <div class="space-y-3">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
                                     
                                     <!-- Serviço 1 -->
                                     <div class="border-b pb-2">
@@ -412,12 +514,12 @@
 
                         <!-- SLIDE 2: AUDIOVISUAL -->
                         <div class="carousel-item w-full shrink-0 p-4">
-                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[350px]">
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="video" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau Audiovisual</h4>
                                 </div>
-                                <div class="space-y-3">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
                                     <div class="border-b pb-2">
                                         <span class="info-label">Meio de Solicitação Geral:</span>
                                         <!-- Cor alterada para text-link-blue -->
@@ -459,12 +561,12 @@
                         
                         <!-- SLIDE 3: DESIGN -->
                         <div class="carousel-item w-full shrink-0 p-4">
-                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[350px]">
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="star" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau de Design</h4>
                                 </div>
-                                <div class="space-y-3">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
                                     <div class="border-b pb-2">
                                         <span class="info-label">Meio de Solicitação Geral:</span>
                                         <!-- Cor alterada para text-link-blue -->
@@ -521,12 +623,12 @@
                         
                         <!-- SLIDE 4: EDITORIAL -->
                         <div class="carousel-item w-full shrink-0 p-4">
-                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[350px]">
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="layers" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau Editorial</h4>
                                 </div>
-                                <div class="space-y-3">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
                                     
                                     <!-- Serviço 1 -->
                                     <div class="border-b pb-2">
@@ -727,7 +829,7 @@
     </section>
 
     <!-- ======================================== FOOTER Placeholder ======================================== -->
-    <footer class="bg-cinza_escuro text-white p-8 text-center text-xs">
+    <footer class="bg-ufpe-red text-white p-8 text-center text-xs">
         &copy; 2025 Bureau GCI. Todos os direitos reservados.
     </footer>
 
