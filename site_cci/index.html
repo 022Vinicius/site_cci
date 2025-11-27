@@ -89,6 +89,9 @@
             /* Removido overflow: visible; para esconder slides */
         }
         .carousel-item {
+
+
+
             width: 100%;
             flex-shrink: 0;
             padding: 0.5rem; /* Reduzido o padding interno do slide */
@@ -124,6 +127,7 @@
         .hero-background-slide.active {
             opacity: 1;
         }
+/
         
         /* --- CSS para a Trilha de Solicitação (Infográfico) --- */
         .timeline-step {
@@ -693,6 +697,13 @@
 
                     <!-- Grid de Cards de Projeto --><div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Cards serão injetados pelo JavaScript --></div>
+
+                    <!-- Botão "Ver Mais Projetos" (Novo) -->
+                    <div id="projects-load-more-container" class="text-center mt-12">
+                        <button id="projects-load-more-btn" class="inline-block bg-ufpe-red text-white px-8 py-3 rounded-xl font-semibold hover:bg-ufpe-red-light transition-colors transform hover:-translate-y-0.5 shadow-lg hidden">
+                            Ver Mais Projetos
+                        </button>
+                    </div>
                     
                 </div>
             </div>
@@ -820,6 +831,10 @@
             { name: "Comunicação Mú", description: "Criação de materiais para o Centro de Ciências Exatas (CCE).", logoUrl: "https://placehold.co/180x100/0277BD/FFFFFF?text=LOGO+CCE" }
         ];
 
+        // Variáveis globais para Projetos (Novo)
+        const PROJECTS_INITIAL_DISPLAY_COUNT = 6; 
+        let isProjectsExpanded = false;
+
         // Variáveis globais para Conexões
         const INITIAL_DISPLAY_COUNT = 3;
         let isConnectionsExpanded = false;
@@ -856,11 +871,17 @@
                 });
             });
 
-            // --- 2. LÓGICA DA PÁGINA PROJETOS (FILTRAGEM E SIDEBAR) ---
+            // --- 2. LÓGICA DA PÁGINA PROJETOS (FILTRAGEM, SIDEBAR E EXPANSÃO) ---
 
             const projectsGrid = document.getElementById('projects-grid');
             const filterButtons = document.querySelectorAll('.filter-button');
             const categorySidebarList = document.getElementById('category-sidebar-list');
+            const projectsLoadMoreBtn = document.getElementById('projects-load-more-btn');
+            const projectsLoadMoreContainer = document.getElementById('projects-load-more-container');
+
+            // Armazena o estado atual dos projetos filtrados para uso no Load More
+            let currentFilteredProjects = PROJECTS_DATA; 
+            let currentCategory = 'TODOS';
 
             // Calcula contagens para o Sidebar
             const calculateCategoryCounts = () => {
@@ -936,17 +957,37 @@
                 `;
             };
 
-            const filterProjects = (category) => {
+            const renderProjects = () => {
                 projectsGrid.innerHTML = '';
-                const filteredProjects = category === 'TODOS' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.category === category);
-
-                if (filteredProjects.length === 0) {
-                     projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
-                     return;
-                }
                 
-                filteredProjects.forEach(project => projectsGrid.innerHTML += createProjectCard(project));
+                const projectsToShow = isProjectsExpanded 
+                    ? currentFilteredProjects 
+                    : currentFilteredProjects.slice(0, PROJECTS_INITIAL_DISPLAY_COUNT);
 
+                if (projectsToShow.length === 0) {
+                     projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
+                } else {
+                    projectsToShow.forEach(project => projectsGrid.innerHTML += createProjectCard(project));
+                }
+
+                // Gerencia o botão "Ver Mais"
+                if (currentFilteredProjects.length > PROJECTS_INITIAL_DISPLAY_COUNT) {
+                    projectsLoadMoreContainer.classList.remove('hidden');
+                    projectsLoadMoreBtn.classList.remove('hidden');
+                    projectsLoadMoreBtn.textContent = isProjectsExpanded ? 'Ver Menos Projetos' : 'Ver Mais Projetos';
+                } else {
+                    projectsLoadMoreContainer.classList.add('hidden');
+                    projectsLoadMoreBtn.classList.add('hidden');
+                }
+            };
+            
+            const filterProjects = (category) => {
+                currentCategory = category;
+                isProjectsExpanded = false; // Reseta a expansão ao mudar a categoria
+                currentFilteredProjects = category === 'TODOS' ? PROJECTS_DATA : PROJECTS_DATA.filter(p => p.category === category);
+
+                renderProjects();
+                
                 // Sincroniza o estado do Sidebar
                 document.querySelectorAll('#category-sidebar-list .category-filter').forEach(li => {
                     li.classList.remove('active', 'bg-red-50', 'font-bold', 'text-ufpe-red');
@@ -973,6 +1014,19 @@
                     filterProjects(category);
                 });
             });
+
+            // Lógica do botão de expansão de projetos
+            if (projectsLoadMoreBtn) {
+                projectsLoadMoreBtn.addEventListener('click', () => {
+                    isProjectsExpanded = !isProjectsExpanded;
+                    renderProjects();
+                    
+                    if (isProjectsExpanded) {
+                        smoothScrollWithOffset('#projetos', false);
+                    }
+                });
+            }
+
 
             renderCategorySidebar(); // Inicializa o sidebar com contagens
             filterProjects('TODOS'); // Inicializa a seção de Projetos
