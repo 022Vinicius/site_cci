@@ -41,7 +41,7 @@
     </script>
 
 
-    <!-- CSS Customizado --><style>
+    <style>
         body { font-family: 'Work Sans', sans-serif; background-color: #f7f7f7; }
         h1, h2, h3, h4 { font-family: 'Work Sans', sans-serif; }
         
@@ -96,20 +96,7 @@
             flex-shrink: 0;
             padding: 0.5rem; /* Reduzido o padding interno do slide */
         }
-        /* Ajuste de espaçamento para as informações dentro do slide */
-        .info-label {
-            /* Alterado de text-sm para text-xs */
-            @apply font-bold text-ufpe-red text-xs uppercase tracking-wider block mb-0 mt-2; 
-        }
-        .info-value {
-             /* Alterado de text-base para text-sm */
-            @apply text-gray-700 text-sm leading-tight;
-        }
-        .info-detail {
-            /* Alterado de text-sm para text-xs */
-            @apply text-xs text-gray-600;
-        }
-
+        
 
         /* --- CSS para o Carrossel de Imagens do HERO --- */
         .hero-background-slide {
@@ -127,7 +114,7 @@
         .hero-background-slide.active {
             opacity: 1;
         }
-/
+        
         
         /* --- CSS para a Trilha de Solicitação (Infográfico) --- */
         .timeline-step {
@@ -436,7 +423,7 @@
                                     <i data-lucide="pen" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Divulgação de Notícias e Redes Sociais</h4>
                                 </div>
-                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 --><!-- Serviço 1 --><div class="border-b pb-2">
+                                <div class="space-y-2"> <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Divulgação de notícias, postagens, editais e ações</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -449,7 +436,7 @@
                                             </div>
                                         </div>
                                         <span class="info-label mt-2">Meio de Solicitação:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail">E-mail (<a href="mailto:comunicacao.proext@ufpe.br" class="text-link-blue hover:underline">comunicacao.proext@ufpe.br</a>)</p>
+                                        <p class="info-detail">E-mail (<a href="mailto:comunicacao.proext@ufpe.br" class="text-link-blue hover:underline">comunicacao.proext@ufpe.br</a>)</p>
                                     </div>
 
                                     <!-- Serviço 2 --><div class="border-b pb-2">
@@ -1083,7 +1070,7 @@
                     'bureau-purple': 'from-bureau-purple-600 to-bureau-purple-400',
                     'bureau-blue': 'from-bureau-blue-600 to-bureau-blue-400',
                     'bureau-green': 'from-bureau-green-600 to-bureau-green-400',
-                    'ufpe-red': 'from-red-600 to-red-400', // Usando red-600/400 para cores do Tailwind mais seguras
+                    'ufpe-red': 'from-red-600 to-red-400', 
                     'ufpe-red-light': 'from-red-400 to-red-200',
                 };
                 const gradientClass = colorClasses[color] || 'from-gray-600 to-gray-400';
@@ -1097,7 +1084,7 @@
                         </div>
                     `;
 
-                const badgeColor = color; // Cor do texto do badge é a cor do Bureau
+                const badgeColor = color; 
 
                 return `
                     <div class="team-card p-4 bg-white rounded-xl shadow-lg border border-gray-200 text-center transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1">
