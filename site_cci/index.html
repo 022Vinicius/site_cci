@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bureau CCI - Comunicação Estratégica</title>
 
-    <!-- Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS via CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ico do site  --><link rel="icon" type="image/x-icon" href="assets/CCI-reduzido-colorido3.ico">
+    <!-- ico do site  -->
+    <link rel="icon" type="image/x-icon" href="assets/CCI-reduzido-colorido3.ico">
     
-    <!-- Lucide Icons CDN (Usado para a página de Serviços) --><script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons CDN (Usado para a página de Serviços) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
 
     <script>
@@ -41,6 +45,7 @@
     </script>
 
 
+    <!-- CSS Customizado -->
     <style>
         body { font-family: 'Work Sans', sans-serif; background-color: #f7f7f7; }
         h1, h2, h3, h4 { font-family: 'Work Sans', sans-serif; }
@@ -91,12 +96,12 @@
         .carousel-item {
 
 
-
             width: 100%;
             flex-shrink: 0;
             padding: 0.5rem; /* Reduzido o padding interno do slide */
         }
         
+
 
         /* --- CSS para o Carrossel de Imagens do HERO --- */
         .hero-background-slide {
@@ -114,6 +119,7 @@
         .hero-background-slide.active {
             opacity: 1;
         }
+
         
         
         /* --- CSS para a Trilha de Solicitação (Infográfico) --- */
@@ -171,16 +177,20 @@
 
 
     
-    <!-- ======================================== NAVBAR (MENU) ======================================== --><nav class="fixed top-0 left-0 w-full z-50 bg-ufpe-red text-white shadow-lg">
+    <!-- ======================================== NAVBAR (MENU) ======================================== -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-ufpe-red text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="flex justify-between items-center py-5">
                 
-                <!-- Logo (AUMENTADO O TAMANHO: h-22 w-24) --><a href="#hero" class="flex items-center space-x-2 scroll-smooth">
+                <!-- Logo (AUMENTADO O TAMANHO: h-22 w-24) -->
+                <a href="#hero" class="flex items-center space-x-2 scroll-smooth">
                     <img src="assets/CCI branco3.png" alt="logo" class="h-22 w-24">
                 </a>
                 
-                <!-- Menu Desktop --><ul class="hidden lg:flex space-x-8 text-sm">
-                    <!-- hover:text-white/50 é o ideal para fundo escuro --><li><a href="#hero" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Home</a></li>
+                <!-- Menu Desktop -->
+                <ul class="hidden lg:flex space-x-8 text-sm">
+                    <!-- hover:text-white/50 é o ideal para fundo escuro -->
+                    <li><a href="#hero" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Home</a></li>
                     <li><a href="#sobre" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Sobre Nós</a></li>
                     <li><a href="#servicos" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Serviços</a></li>
                     <li><a href="#projetos" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Projetos</a></li>
@@ -188,15 +198,18 @@
                     <li><a href="#conexoes" class="hover:text-white/50 transition-colors duration-300 font-medium scroll-smooth nav-link">Nossas Conexões</a></li>
                 </ul>
                 
-                <!-- Botão Mobile Menu --><button id="mobile-menu-btn" class="lg:hidden focus:outline-none">
+                <!-- Botão Mobile Menu -->
+                <button id="mobile-menu-btn" class="lg:hidden focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>
 
-            <!-- Menu Mobile (Dropdown) --><div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-2 text-base">
-                <!-- hover:text-white/50 é o ideal para fundo escuro --><a href="#hero" class="block py-2 hover:text-white/50 transition-colors scroll-smooth mobile-nav-link">Home</a>
+            <!-- Menu Mobile (Dropdown) -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-2 text-base">
+                <!-- hover:text-white/50 é o ideal para fundo escuro -->
+                <a href="#hero" class="block py-2 hover:text-white/50 transition-colors scroll-smooth mobile-nav-link">Home</a>
                 <a href="#sobre" class="block py-2 hover:text-white/50 transition-colors scroll-smooth mobile-nav-link">Sobre Nós</a>
                 <a href="#servicos" class="block py-2 hover:text-white/50 transition-colors scroll-smooth mobile-nav-link">Serviços</a>
                 <a href="#projetos" class="block py-2 hover:text-white/50 transition-colors scroll-smooth mobile-nav-link">Projetos</a>
@@ -206,18 +219,25 @@
         </div>
     </nav>
 
-<!-- ======================================== HERO SECTION (HOME) - COM CARROSSEL DE FUNDO ======================================== --><section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden scroll-offset">
+    <!-- ======================================== HERO SECTION (HOME) - COM CARROSSEL DE FUNDO ======================================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center bg-gray-900 text-white overflow-hidden scroll-offset">
         
-        <!-- Contêiner para as Slides de Fundo (Novo) --><div id="hero-slideshow-container" class="absolute inset-0">
-            <!-- As imagens de fundo serão criadas aqui pelo JavaScript (com placeholders) --><!-- Placeholder para a primeira imagem (visível por padrão) --><div class="hero-background-slide active" style="background-image: url('assets/Páginas.png');"></div>
+        <!-- Contêiner para as Slides de Fundo (Novo) -->
+        <div id="hero-slideshow-container" class="absolute inset-0">
+            <!-- As imagens de fundo serão criadas aqui pelo JavaScript (com placeholders) -->
+            <!-- Placeholder para a primeira imagem (visível por padrão) -->
+            <div class="hero-background-slide active" style="background-image: url('assets/Páginas.png');"></div>
             <div class="hero-background-slide" style="background-image: url('assets/mockup-social-media.png');"></div>
-            <div class="hero-background-slide" style="background-image: url('assets/mockup_design.jpg');"></div>
-            <div class="hero-background-slide" style="background-image: url('assets/mockup_audiovisual.jpg');"></div>
+            <div class="hero-background-slide" style="background-image: url(assets/mockup_design.jpg);"></div>
+            <div class="hero-background-slide" style="background-image: url(assets/mockup_audiovisual.jpg);"></div>
         </div>
         
-        <!-- Background com Overlay (MANTIDO para contraste com o texto) --><!-- Reduzimos a opacidade do overlay para que as imagens fiquem mais visíveis --><div class="absolute inset-0 bg-gray-900 opacity-70"></div>
+        <!-- Background com Overlay (MANTIDO para contraste com o texto) -->
+        <!-- Reduzimos a opacidade do overlay para que as imagens fiquem mais visíveis -->
+        <div class="absolute inset-0 bg-gray-900 opacity-70"></div>
         
-        <!-- Conteúdo --><div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
+        <!-- Conteúdo -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto py-20">
             <h1 class="text-5xl md:text-6xl lg:text-6xl font-bold mb-6 font-display animate-fade-in-up">
                 Criatividade com propósito:<br>
                 comunicar para transformar
@@ -227,10 +247,12 @@
                 Somos especialistas em comunicação estratégica, design e projetos que geram impacto real
             </p>
             
-            <!-- Botões (Retirado do bloco original para simplificação) --></div>
+            <!-- Botões (Retirado do bloco original para simplificação) -->
+        </div>
     </section>
 
-<!-- ======================================== SOBRE NÓS / LOGO INSTITUCIONAL + LOGOS BUREAUS ======================================== --><section id="sobre" class="py-20 bg-cinza_claro scroll-offset">
+    <!-- ======================================== SOBRE NÓS / LOGO INSTITUCIONAL + LOGOS BUREAUS ======================================== -->
+    <section id="sobre" class="py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
             <div class="text-center mb-16">
@@ -247,7 +269,8 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             
-            <!-- Bureau Audiovisual --><div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <!-- Bureau Audiovisual -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div class="h-56 w-full overflow-hidden">
                 <img src="assets/Avatar Logo Bureau Audiovisual Vermelho.png" alt="Bureau Audiovisual UFPE PROEXT" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8B0000/FFFFFF?text=Audiovisual';" />
                 </div>
@@ -260,7 +283,8 @@
                 </div>
             </div>
             
-            <!-- Bureau Editorial --><div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <!-- Bureau Editorial -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div class="h-56 w-full overflow-hidden">
                 <img src="assets/Avatar Logo Bureau Editorial Vermelho.png" alt="Bureau Editorial UFPE PROEXT" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8B0000/FFFFFF?text=Editorial';" />
                 </div>
@@ -273,7 +297,8 @@
                 </div>
             </div>
             
-            <!-- Bureau de Design --><div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+            <!-- Bureau de Design -->
+            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div class="h-56 w-full overflow-hidden">
                 <img src="assets/Avatar Logo Bureau Design Vermelho.png" alt="Bureau de Design UFPE PROEXT" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8B0000/FFFFFF?text=Design';" />
                 </div>
@@ -291,10 +316,12 @@
     </section>
 
     
-    <!-- ======================================== SERVIÇOS SECTION ======================================== --><section id="servicos" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
+    <!-- ======================================== SERVIÇOS SECTION ======================================== -->
+    <section id="servicos" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
-            <!-- Título e Subtítulo --><div class="text-center mb-10 md:mb-16">
+            <!-- Título e Subtítulo -->
+            <div class="text-center mb-10 md:mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
                     Serviços
                 </h2>
@@ -304,9 +331,11 @@
                 <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
             </div>
 
-            <!-- Grid de Cards de Serviço --><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Grid de Cards de Serviço -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Card 1: Social Media --><div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
+                <!-- Card 1: Social Media -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                         <i data-lucide="pen" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
@@ -318,7 +347,8 @@
                     </p>
                 </div>
 
-                <!-- Card 2: Audiovisual --><div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
+                <!-- Card 2: Audiovisual -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                         <i data-lucide="video" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
@@ -330,19 +360,21 @@
                     </p>
                 </div>
 
-                <!-- Card 3: Design --><div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
+                <!-- Card 3: Design -->
+                <div class="flex flex-col items-center text-center p-6 border-r-2 border-gray-200 lg:border-r-0 lg:border-r-2 last:border-r-0 h-full">
                     <div class="mb-4">
                            <i data-lucide="star" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
                     <h3 class="text-lg font-bold text-ufpe-red mb-2 uppercase tracking-wider">
-                            Design
+                           Design
                     </h3>
                     <p class="text-gray-700 text-sm mt-4 leading-relaxed mx-auto">
                         Criação de identidade visual e design gráfico para projetos.
                     </p>
                 </div>
 
-                <!-- Card 4: Editorial --><div class="flex flex-col items-center text-center p-6 border-gray-200 h-full">
+                <!-- Card 4: Editorial -->
+                <div class="flex flex-col items-center text-center p-6 border-gray-200 h-full">
                     <div class="mb-4">
                         <i data-lucide="layers" class="w-10 h-10 text-ufpe-red"></i>
                     </div>
@@ -356,7 +388,9 @@
 
             </div>
             
-            <!-- NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO (INFOGRÁFICO) --><!-- Fundo removido (bg-white e shadow-lg), mantido border-gray-100 para separação --><div class="max-w-6xl mx-auto mt-8 px-4 py-8 border border-gray-200 rounded-xl">
+            <!-- NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO (INFOGRÁFICO) -->
+            <!-- Fundo removido (bg-white e shadow-lg), mantido border-gray-100 para separação -->
+            <div class="max-w-6xl mx-auto mt-8 px-4 py-8 border border-gray-200 rounded-xl">
                 <div class="text-center mb-6">
                     <h3 class="text-2xl font-bold text-ufpe-red mb-1 font-display">
                         Trilha de Solicitação
@@ -366,15 +400,20 @@
                 
                 <!-- O FLUXO EM SI (AJUSTADO PARA NOVA RAMIFICAÇÃO) -->
                 <div class="timeline-container relative">
-                    <!-- Linha base cinza que vai de ponta a ponta --><div class="timeline-base-line"></div>
+                    <!-- Linha base cinza que vai de ponta a ponta -->
+                    <div class="timeline-base-line"></div>
 
-                    <!-- Linha de fluxo entre Envio e Avaliação (CINZA) --><div class="timeline-flow-line bg-gray-500 left-[calc(12.5%+10px)] w-[calc(25%-20px)]"></div>
+                    <!-- Linha de fluxo entre Envio e Avaliação (CINZA) -->
+                    <div class="timeline-flow-line bg-gray-500 left-[calc(12.5%+10px)] w-[calc(25%-20px)]"></div>
                     
-                    <!-- Linha de fluxo entre Avaliação e Produção (VERDE - SIM) --><div class="timeline-flow-line bg-bureau-green left-[calc(37.5%+10px)] w-[calc(25%-20px)]"></div>
+                    <!-- Linha de fluxo entre Avaliação e Produção (VERDE - SIM) -->
+                    <div class="timeline-flow-line bg-bureau-green left-[calc(37.5%+10px)] w-[calc(25%-20px)]"></div>
 
-                    <!-- Linha de fluxo entre Avaliação e Alocação Futura (CINZA ESCURO - NÃO) --><div class="timeline-flow-line bg-gray-700 left-[calc(62.5%+10px)] w-[calc(25%-20px)]"></div>
+                    <!-- Linha de fluxo entre Avaliação e Alocação Futura (VERMELHO - NÃO) -->
+                    <div class="timeline-flow-line bg-ufpe-red left-[calc(62.5%+10px)] w-[calc(25%-20px)]"></div>
                     
-                    <!-- Passo 1: Envio --><div class="w-1/4 timeline-step">
+                    <!-- Passo 1: Envio -->
+                    <div class="w-1/4 timeline-step">
                         <div class="timeline-icon-container w-14 h-14 bg-ufpe-red rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">📧</div>
                         <div class="timeline-text">
                             <p class="text-xs font-bold text-cinza_escuro">1. Envio</p>
@@ -382,7 +421,8 @@
                         </div>
                     </div>
 
-                    <!-- Passo 2: Avaliação (Ponto de Decisão) --><div class="w-1/4 timeline-step">
+                    <!-- Passo 2: Avaliação (Ponto de Decisão) -->
+                    <div class="w-1/4 timeline-step">
                         <div class="timeline-icon-container w-14 h-14 bg-ufpe-red rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">🧑‍💻</div>
                         <div class="timeline-text">
                             <p class="text-xs font-bold text-cinza_escuro">2. Avaliação</p>
@@ -390,7 +430,8 @@
                         </div>
                     </div>
 
-                    <!-- Passo 3: SIM (Produção) --><div class="w-1/4 timeline-step">
+                    <!-- Passo 3: SIM (Produção) -->
+                    <div class="w-1/4 timeline-step">
                         <div class="timeline-icon-container w-14 h-14 bg-bureau-green rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">✅</div>
                         <div class="timeline-text">
                             <p class="text-xs font-bold text-bureau-green">3. SIM (Aprovado)</p>
@@ -398,32 +439,45 @@
                         </div>
                     </div>
 
-                    <!-- Passo 4: NÃO (Alocação Futura) --><div class="w-1/4 timeline-step">
-                        <div class="timeline-icon-container w-14 h-14 bg-gray-500 rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">❌</div>
+                    <!-- Passo 4: NÃO (Alocação Futura) -->
+                    <div class="w-1/4 timeline-step">
+                        <div class="timeline-icon-container w-14 h-14 bg-ufpe-red rounded-full flex items-center justify-center text-2xl mb-3 border-4 border-white shadow-lg">❌</div>
                         <div class="timeline-text">
-                            <p class="text-xs font-bold text-gray-700">3. NÃO (Alocação Futura)</p>
-                            <p class="text-[0.6rem] text-gray-500 mt-1">Demanda Reavaliada Posteriormente</p>
+                            <p class="text-xs font-bold text-ufpe-red">3. NÃO (Não Alocado no Momento)</p>
+                            <p class="text-[0.6rem] text-gray-500 mt-1">Não contemplado na agenda atual</p>
                         </div>
                     </div>
                 </div>
                 
             </div>
-            <!-- /NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO --><!-- Subseção de SOLICITAÇÃO E PRAZOS (CARROSSEL REESTRUTURADO) --><!-- Fundo removido (bg-white e shadow-2xl), mantido border-gray-200/border --><div class="mt-6 max-w-6xl mx-auto p-6 md:p-10 border border-gray-200 rounded-xl">
+            <!-- /NOVO BLOCO: FLUXO DE SOLICITAÇÃO DE SERVIÇO -->
+
+
+            <!-- Subseção de SOLICITAÇÃO E PRAZOS (CARROSSEL REESTRUTURADO) -->
+            <!-- Fundo removido (bg-white e shadow-2xl), mantido border-gray-200/border -->
+            <div class="mt-6 max-w-6xl mx-auto p-6 md:p-10 border border-gray-200 rounded-xl">
                 <h3 class="text-2xl font-bold text-cinza_escuro mb-6 border-b pb-2 font-display">
                     Prazos e Detalhes de Solicitação por Serviço
                 </h3>
                 
-                <!-- Contêiner do Carrossel e Navegação --><!-- Adicionado overflow-hidden para forçar a visualização de apenas 1 slide por vez --><div class="relative max-w-4xl mx-auto mt-6 overflow-hidden">
+                <!-- Contêiner do Carrossel e Navegação -->
+                <!-- Adicionado overflow-hidden para forçar a visualização de apenas 1 slide por vez -->
+                <div class="relative max-w-4xl mx-auto mt-6 overflow-hidden">
                     
-                    <!-- Carousel Track --><div id="deadline-carousel-track" class="flex transition-transform duration-500 ease-in-out relative">
+                    <!-- Carousel Track -->
+                    <div id="deadline-carousel-track" class="flex transition-transform duration-500 ease-in-out relative">
                     
-                        <!-- SLIDE 1: SOCIAL MEDIA --><div class="carousel-item w-full shrink-0 p-4">
-                            <!-- min-h reduzido para menor espaçamento vertical --><div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]"> 
+                        <!-- SLIDE 1: SOCIAL MEDIA -->
+                        <div class="carousel-item w-full shrink-0 p-4">
+                            <!-- min-h reduzido para menor espaçamento vertical -->
+                            <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]"> 
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="pen" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Divulgação de Notícias e Redes Sociais</h4>
                                 </div>
-                                <div class="space-y-2"> <div class="border-b pb-2">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
+                                    <!-- Serviço 1 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Divulgação de notícias, postagens, editais e ações</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -436,10 +490,12 @@
                                             </div>
                                         </div>
                                         <span class="info-label mt-2">Meio de Solicitação:</span>
+                                        <!-- Cor alterada para text-link-blue -->
                                         <p class="info-detail">E-mail (<a href="mailto:comunicacao.proext@ufpe.br" class="text-link-blue hover:underline">comunicacao.proext@ufpe.br</a>)</p>
                                     </div>
 
-                                    <!-- Serviço 2 --><div class="border-b pb-2">
+                                    <!-- Serviço 2 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Criação de textos institucionais para site e redes sociais</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -459,18 +515,22 @@
                             </div>
                         </div>
 
-                        <!-- SLIDE 2: AUDIOVISUAL --><div class="carousel-item w-full shrink-0 p-4">
+                        <!-- SLIDE 2: AUDIOVISUAL -->
+                        <div class="carousel-item w-full shrink-0 p-4">
                             <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="video" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau Audiovisual</h4>
                                 </div>
-                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 --><div class="border-b pb-2">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
+                                    <div class="border-b pb-2">
                                         <span class="info-label">Meio de Solicitação Geral:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail">E-mail (<a href="mailto:audiovisual.proext@ufpe.br" class="text-link-blue hover:underline">audiovisual.proext@ufpe.br</a>)</p>
+                                        <!-- Cor alterada para text-link-blue -->
+                                        <p class="info-detail">E-mail (<a href="mailto:audiovisual.proext@ufpe.br" class="text-link-blue hover:underline">audiovisual.proext@ufpe.br</a>)</p>
                                     </div>
 
-                                    <!-- Serviço 1 --><div class="border-b pb-2">
+                                    <!-- Serviço 1 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Produção de vídeos institucionais, podcasts e outros conteúdos multimídia</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -484,7 +544,8 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Serviço 2 --><div>
+                                    <!-- Serviço 2 -->
+                                    <div>
                                         <p class="info-value font-semibold">Cobertura audiovisual de eventos</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -501,18 +562,22 @@
                             </div>
                         </div>
                         
-                        <!-- SLIDE 3: DESIGN --><div class="carousel-item w-full shrink-0 p-4">
+                        <!-- SLIDE 3: DESIGN -->
+                        <div class="carousel-item w-full shrink-0 p-4">
                             <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="star" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau de Design</h4>
                                 </div>
-                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 --><div class="border-b pb-2">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
+                                    <div class="border-b pb-2">
                                         <span class="info-label">Meio de Solicitação Geral:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail">E-mail (<a href="mailto:bureaudesign.proext@ufpe.br" class="text-link-blue hover:underline">bureaudesign.proext@ufpe.br</a>)</p>
+                                        <!-- Cor alterada para text-link-blue -->
+                                        <p class="info-detail">E-mail (<a href="mailto:bureaudesign.proext@ufpe.br" class="text-link-blue hover:underline">bureaudesign.proext@ufpe.br</a>)</p>
                                     </div>
                                     
-                                    <!-- Serviço 1 --><div class="border-b pb-2">
+                                    <!-- Serviço 1 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Criação de identidade visual (marcas e campanhas)</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -526,7 +591,8 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Serviço 2 --><div class="border-b pb-2">
+                                    <!-- Serviço 2 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Produção de materiais gráficos (cartazes, folders, banners)</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -540,7 +606,8 @@
                                         </div>
                                     </div>
 
-                                    <!-- Serviço 3 --><div>
+                                    <!-- Serviço 3 -->
+                                    <div>
                                         <p class="info-value font-semibold">Aplicação de templates em materiais de comunicação para o site e redes sociais</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -557,13 +624,16 @@
                             </div>
                         </div>
                         
-                        <!-- SLIDE 4: EDITORIAL --><div class="carousel-item w-full shrink-0 p-4">
+                        <!-- SLIDE 4: EDITORIAL -->
+                        <div class="carousel-item w-full shrink-0 p-4">
                             <div class="bg-gray-50 p-4 md:p-6 rounded-xl border-t-4 border-ufpe-red shadow-lg min-h-[300px]">
                                 <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
                                     <i data-lucide="layers" class="w-6 h-6 text-ufpe-red mr-2"></i>
                                     <h4 class="text-lg font-bold text-ufpe-red font-display">Bureau Editorial</h4>
                                 </div>
-                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 --><!-- Serviço 1 --><div class="border-b pb-2">
+                                <div class="space-y-2"> <!-- Reduzido space-y-3 para space-y-2 -->
+                                    <!-- Serviço 1 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Elaboração de boletins informativos e artigos</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -576,10 +646,12 @@
                                             </div>
                                         </div>
                                         <span class="info-label mt-2">E-mail:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail"><a href="mailto:comunicacao.proext@ufpe.br" class="text-link-blue hover:underline">comunicacao.proext@ufpe.br</a></p>
+                                        <!-- Cor alterada para text-link-blue -->
+                                        <p class="info-detail"><a href="mailto:comunicacao.proext@ufpe.br" class="text-link-blue hover:underline">comunicacao.proext@ufpe.br</a></p>
                                     </div>
                                     
-                                    <!-- Serviço 2 --><div class="border-b pb-2">
+                                    <!-- Serviço 2 -->
+                                    <div class="border-b pb-2">
                                         <p class="info-value font-semibold">Coordenação editorial e publicação da revista Estudos Universitários</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -592,10 +664,12 @@
                                             </div>
                                         </div>
                                         <span class="info-label mt-2">E-mail:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail"><a href="mailto:estudosuniversitarios@ufpe.br" class="text-link-blue hover:underline">estudosuniversitarios@ufpe.br</a></p>
+                                        <!-- Cor alterada para text-link-blue -->
+                                        <p class="info-detail"><a href="mailto:estudosuniversitarios@ufpe.br" class="text-link-blue hover:underline">estudosuniversitarios@ufpe.br</a></p>
                                     </div>
                                     
-                                    <!-- Serviço 3 --><div>
+                                    <!-- Serviço 3 -->
+                                    <div>
                                         <p class="info-value font-semibold">Revisão e edição de textos institucionais</p>
                                         <div class="grid grid-cols-2 mt-1">
                                             <div>
@@ -608,7 +682,8 @@
                                             </div>
                                         </div>
                                         <span class="info-label mt-2">E-mail:</span>
-                                        <!-- Cor alterada para text-link-blue --><p class="info-detail"><a href="mailto:bureaueditorial.proext@ufpe.br" class="text-link-blue hover:underline">bureaueditorial.proext@ufpe.br</a></p>
+                                        <!-- Cor alterada para text-link-blue -->
+                                        <p class="info-detail"><a href="mailto:bureaueditorial.proext@ufpe.br" class="text-link-blue hover:underline">bureaueditorial.proext@ufpe.br</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -616,7 +691,8 @@
 
                     </div>
                     
-                    <!-- Navigation Buttons --><button id="prev-slide" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/80 p-2.5 rounded-full shadow-xl ml-2 hover:bg-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+                    <!-- Navigation Buttons -->
+                    <button id="prev-slide" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/80 p-2.5 rounded-full shadow-xl ml-2 hover:bg-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
                         <i data-lucide="chevron-left" class="w-6 h-6 text-ufpe-red"></i>
                     </button>
                     <button id="next-slide" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white/80 p-2.5 rounded-full shadow-xl mr-2 hover:bg-white transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
@@ -625,7 +701,9 @@
                 </div>
 
 
-                <!-- OBSERVAÇÕES FINAIS --><!-- Reduzido mt-10 para mt-6 para menor espaçamento --><div class="mt-6 p-6 bg-gray-50 rounded-lg border border-gray-200 max-w-4xl mx-auto">
+                <!-- OBSERVAÇÕES FINAIS -->
+                <!-- Reduzido mt-10 para mt-6 para menor espaçamento -->
+                <div class="mt-6 p-6 bg-gray-50 rounded-lg border border-gray-200 max-w-4xl mx-auto">
                     <h5 class="text-lg font-bold text-ufpe-red mb-3 flex items-center">
                         <i data-lucide="alert-triangle" class="w-5 h-5 mr-2"></i> Observações sobre Prioridade e Atendimento
                     </h5>
@@ -642,10 +720,12 @@
         </div>
     </section>
 
-    <!-- ======================================== PROJETOS SECTION ======================================== --><section id="projetos" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
+    <!-- ======================================== PROJETOS SECTION ======================================== -->
+    <section id="projetos" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
-            <!-- Título Principal --><div class="text-center mb-10 md:mb-16">
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
                     Nossos Projetos
                 </h2>
@@ -654,20 +734,26 @@
                 </p>
             </div>
 
-            <!-- Layout Principal: Sidebar + Conteúdo --><div class="lg:flex lg:space-x-10">
+            <!-- Layout Principal: Sidebar + Conteúdo -->
+            <div class="lg:flex lg:space-x-10">
                 
-                <!-- Sidebar de Categorias (Atualizada para refletir as categorias principais com contagens dinâmicas) --><aside class="w-full lg:w-64 mb-10 lg:mb-0 shrink-0">
+                <!-- Sidebar de Categorias (Atualizada para refletir as categorias principais com contagens dinâmicas) -->
+                <aside class="w-full lg:w-64 mb-10 lg:mb-0 shrink-0">
                     <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-[120px]">
                         <h3 class="text-lg font-bold text-cinza_escuro mb-4 border-b pb-2">CATEGORIAS</h3>
                         
-                        <!-- Lista de Categorias Dinâmicas --><ul id="category-sidebar-list" class="space-y-1 text-sm">
-                            <!-- Categorias serão preenchidas via JavaScript --></ul>
+                        <!-- Lista de Categorias Dinâmicas -->
+                        <ul id="category-sidebar-list" class="space-y-1 text-sm">
+                            <!-- Categorias serão preenchidas via JavaScript -->
+                        </ul>
                     </div>
                 </aside>
 
-                <!-- Conteúdo Principal e Grid de Projetos --><div class="flex-grow">
+                <!-- Conteúdo Principal e Grid de Projetos -->
+                <div class="flex-grow">
                     
-                    <!-- Filtros (Chips/Botões) --><div id="filter-buttons" class="flex flex-wrap gap-3 mb-10">
+                    <!-- Filtros (Chips/Botões) -->
+                    <div id="filter-buttons" class="flex flex-wrap gap-3 mb-10">
                         <button data-filter="TODOS" class="filter-button active bg-ufpe-red text-white px-6 py-2 rounded-full font-medium transition-colors shadow-md">
                             TODOS
                         </button>
@@ -682,8 +768,10 @@
                         </button>
                     </div>
 
-                    <!-- Grid de Cards de Projeto --><div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Cards serão injetados pelo JavaScript --></div>
+                    <!-- Grid de Cards de Projeto -->
+                    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Cards serão injetados pelo JavaScript -->
+                    </div>
 
                     <!-- Botão "Ver Mais Projetos" (Novo) -->
                     <div id="projects-load-more-container" class="text-center mt-12">
@@ -697,10 +785,12 @@
         </div>
     </section>
     
-    <!-- ======================================== NOSSA EQUIPE SECTION ======================================== --><section id="equipe" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
+    <!-- ======================================== NOSSA EQUIPE SECTION ======================================== -->
+    <section id="equipe" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
-            <!-- Título Principal --><div class="text-center mb-10 md:mb-16">
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
                     Equipe
                 </h2>
@@ -711,15 +801,18 @@
             </div>
 
             <div id="team-sections-container">
-                <!-- Conteúdo da Equipe será gerado aqui via JavaScript --></div>
+                <!-- Conteúdo da Equipe será gerado aqui via JavaScript -->
+            </div>
 
         </div>
     </section>
 
-    <!-- ======================================== CONEXÕES SECTION ======================================== --><section id="conexoes" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
+    <!-- ======================================== CONEXÕES SECTION ======================================== -->
+    <section id="conexoes" class="py-12 md:py-20 bg-cinza_claro scroll-offset">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             
-            <!-- Título Principal --><div class="text-center mb-10 md:mb-16">
+            <!-- Título Principal -->
+            <div class="text-center mb-10 md:mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-2 font-display">
                     Nossas Conexões
                 </h2>
@@ -729,10 +822,13 @@
                 <div class="w-24 h-1 bg-ufpe-red mx-auto mt-6"></div>
             </div>
 
-            <!-- Grid de Projetos Parceiros --><div id="connections-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Cards de Conexões serão injetados aqui pelo JavaScript --></div>
+            <!-- Grid de Projetos Parceiros -->
+            <div id="connections-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards de Conexões serão injetados aqui pelo JavaScript -->
+            </div>
             
-            <!-- Botão 'Ver Todas as Conexões' --><div id="load-more-container" class="text-center mt-12">
+            <!-- Botão 'Ver Todas as Conexões' -->
+            <div id="load-more-container" class="text-center mt-12">
                 <button id="load-more-btn" class="inline-block bg-ufpe-red text-white px-8 py-3 rounded-xl font-semibold hover:bg-ufpe-red-light transition-colors transform hover:-translate-y-0.5 shadow-lg">
                     Ver Todas as Conexões
                 </button>
@@ -741,11 +837,72 @@
         </div>
     </section>
 
-    <!-- ======================================== FOOTER Placeholder ======================================== --><footer class="bg-cinza_escuro text-white p-8 text-center text-xs">
+    <!-- ======================================== FOOTER Placeholder ======================================== -->
+    <footer class="bg-cinza_escuro text-white p-8 text-center text-xs">
         &copy; 2025 Bureau GCI. Todos os direitos reservados.
     </footer>
 
-    <!-- ======================================== JavaScript Unificado ======================================== --><script>
+    <!-- ======================================== MODAL DE PROJETOS (NOVO) ======================================== -->
+    <div id="project-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Overlay de fundo -->
+            <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeProjectModal()"></div>
+
+            <!-- Centralização vertical no navegador -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Conteúdo do Modal -->
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+                
+                <!-- Cabeçalho do Modal -->
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 flex justify-between items-center border-b border-gray-200">
+                    <h3 class="text-xl leading-6 font-bold text-ufpe-red" id="modal-project-title">
+                        Título do Projeto
+                    </h3>
+                    <button type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none" onclick="closeProjectModal()">
+                        <span class="sr-only">Fechar</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Corpo do Modal -->
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start flex-col">
+                        
+                        <!-- Categoria e Descrição -->
+                        <div class="mb-6 w-full">
+                            <span id="modal-project-category" class="inline-block bg-ufpe-red text-white text-xs px-2 py-1 rounded-full mb-2">CATEGORIA</span>
+                            <p class="text-sm text-gray-500" id="modal-project-description">
+                                Descrição detalhada do projeto. Aqui você pode explicar o objetivo, o processo criativo e os resultados alcançados com este trabalho.
+                            </p>
+                        </div>
+
+                        <!-- Galeria de 4 Imagens (Grid) -->
+                        <div class="w-full">
+                            <h4 class="text-sm font-bold text-gray-700 mb-3 border-l-4 border-ufpe-red pl-2">Galeria do Projeto</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="modal-gallery-grid">
+                                <!-- Imagens serão injetadas via JS -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Rodapé do Modal -->
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-ufpe-red text-base font-medium text-white hover:bg-ufpe-red-light focus:outline-none sm:ml-3 sm:w-auto sm:text-sm" onclick="closeProjectModal()">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ======================================== JavaScript Unificado ======================================== -->
+    <script>
         // Dados de Mockup para Projetos (AJUSTADO para total de 47)
         const PROJECTS_DATA = [
             // 18x DESIGN
@@ -753,53 +910,19 @@
             { id: 4, title: "Website CCI Redesign", category: "DESIGN", subcategory: "Web Design" },
             { id: 8, title: "Logotipo Novo Projeto", category: "DESIGN", subcategory: "Identidade Visual" },
             { id: 11, title: "Peça Social Media A", category: "DESIGN", subcategory: "Mídias Sociais" },
-            { id: 12, title: "Infográfico Acadêmico", category: "DESIGN", subcategory: "Design Gráfico" },
-            { id: 13, title: "Banner Evento Extensão", category: "DESIGN", subcategory: "Eventos" },
-            { id: 14, title: "Apresentação Institucional", category: "DESIGN", subcategory: "Design Gráfico" },
-            { id: 15, title: "Template de Relatório", category: "DESIGN", subcategory: "Design Gráfico" },
-            { id: 16, title: "Folder de Apresentação", category: "DESIGN", subcategory: "Design Gráfico" },
-            { id: 17, title: "Peça Social Media B", category: "DESIGN", subcategory: "Mídias Sociais" },
-            { id: 18, title: "Redesign de Panfleto", category: "DESIGN", subcategory: "Design Gráfico" },
-            { id: 19, title: "Cartão de Visita", category: "DESIGN", subcategory: "Identidade Visual" },
-            { id: 20, title: "Selo de Qualidade", category: "DESIGN", subcategory: "Identidade Visual" },
-            { id: 21, title: "Layout Newsletter", category: "DESIGN", subcategory: "Web Design" },
-            { id: 22, title: "Mascote Extensão", category: "DESIGN", subcategory: "Identidade Visual" },
-            { id: 23, title: "Peça Social Media C", category: "DESIGN", subcategory: "Mídias Sociais" },
-            { id: 24, title: "Diagramação de E-book", category: "DESIGN", subcategory: "Editorial" },
-            { id: 25, title: "Design para Stands", category: "DESIGN", subcategory: "Eventos" },
-
+            
             // 15x AUDIOVISUAL
             { id: 2, title: "Campanha Vestibular 2024", category: "AUDIOVISUAL", subcategory: "Mídias Sociais" },
             { id: 5, title: "Podcast 'Conecta UFPE'", category: "AUDIOVISUAL", subcategory: "Acervos Musicais" },
             { id: 7, title: "Vídeo Institucional", category: "AUDIOVISUAL", subcategory: "Eventos" },
             { id: 10, title: "Cobertura Congresso", category: "AUDIOVISUAL", subcategory: "Eventos" },
-            { id: 26, title: "Série Documental 'Campus'", category: "AUDIOVISUAL", subcategory: "Documentário" },
-            { id: 27, title: "Motion Graphic Introdução", category: "AUDIOVISUAL", subcategory: "Motion Graphics" },
-            { id: 28, title: "Entrevista com Reitor", category: "AUDIOVISUAL", subcategory: "Entrevista" },
-            { id: 29, title: "Cobertura Evento Cultural", category: "AUDIOVISUAL", subcategory: "Eventos" },
-            { id: 30, title: "Curta sobre Pesquisa", category: "AUDIOVISUAL", subcategory: "Documentário" },
-            { id: 31, title: "Campanha de Doação", category: "AUDIOVISUAL", subcategory: "Mídias Sociais" },
-            { id: 32, title: "Fotografia Institucional A", category: "AUDIOVISUAL", subcategory: "Fotografia" },
-            { id: 33, title: "Fotografia Institucional B", category: "AUDIOVISUAL", subcategory: "Fotografia" },
-            { id: 34, title: "Edição de Vídeo Aula", category: "AUDIOVISUAL", subcategory: "EAD" },
-            { id: 35, title: "Vinheta de Abertura", category: "AUDIOVISUAL", subcategory: "Motion Graphics" },
-            { id: 36, title: "Registro Histórico", category: "AUDIOVISUAL", subcategory: "Acervos" },
-
+        
             // 14x EDITORIAL
             { id: 3, title: "Relatório Anual UFPE", category: "EDITORIAL", subcategory: "Editorial" },
             { id: 6, title: "Guia de Boas-Vindas", category: "EDITORIAL", subcategory: "Editorial" },
             { id: 9, title: "Artigo Científico Design", category: "EDITORIAL", subcategory: "Revisão" },
             { id: 37, title: "Revisão de TCC", category: "EDITORIAL", subcategory: "Revisão" },
-            { id: 38, title: "Produção Revista EU Ed. 10", category: "EDITORIAL", subcategory: "Revista EU" },
-            { id: 39, title: "Produção Revista EU Ed. 11", category: "EDITORIAL", subcategory: "Revista EU" },
-            { id: 40, title: "Texto para Website", category: "EDITORIAL", subcategory: "Copywriting" },
-            { id: 41, title: "Elaboração de E-mail Mkt", category: "EDITORIAL", subcategory: "Copywriting" },
-            { id: 42, title: "Revisão de Normas ABNT", category: "EDITORIAL", subcategory: "Revisão" },
-            { id: 43, title: "Release de Imprensa", category: "EDITORIAL", subcategory: "Comunicação" },
-            { id: 44, title: "Livro Digital 'História'", category: "EDITORIAL", subcategory: "Editorial" },
-            { id: 45, title: "Produção de Conteúdo Blog", category: "EDITORIAL", subcategory: "Copywriting" },
-            { id: 46, title: "Produção Revista EU Ed. 12", category: "EDITORIAL", subcategory: "Revista EU" },
-            { id: 47, title: "Roteiro para Vídeo", category: "EDITORIAL", subcategory: "Roteiro" },
+            
         ];
         
         // Dados de Mockup para Conexões (Adicionado logoUrl)
@@ -811,11 +934,11 @@
             { name: "Projeto Ecomangue", description: "Estratégia de conteúdo em parceria com o CCI.", logoUrl: "assets/marca_ecomangue.png" },
             { name: "Projeto Rádio Migra", description: "Produção audiovisual em conjunto com o Depto. de História.", logoUrl: "assets/marca_radio_migra.png" },
             { name: "Programa Bia", description: "Desenvolvimento de marca para o Centro de Artes (CAC).", logoUrl: "assets/Marca_BIA.png" },
-            { name: "Marca LTM", description: "Digitalização e organização de acervo com a Biblioteca Central.", logoUrl: "assets/Marca_LTMI_e.png" },
-            { name: "Rulle Palestras UFPE", description: "Projeto com a Incubadora de Empresas.", logoUrl: "assets/Rulle.png" },
-            { name: "Rapel Esportivo", description: "Rapel Esportivo", logoUrl: "assets/rapel_esportivo.png" },
-            { name: "Fono UFPE 21 anos", description: "Fono UFPE 21 anos ", logoUrl: "assets/fono_ufpe.png" },
-            { name: "Museu Minerais e Rochas UFPE", description: "Museu Minerais e Rochas UFPE", logoUrl: "assets/museu_minerais.png" }
+            { name: "Marca LTMI", description: "Digitalização e organização de acervo com a Biblioteca Central.", logoUrl: "assets/Marca_LTMI_e.png" },
+            { name: "Iniciativa Iota", description: "Projeto com a Incubadora de Empresas.", logoUrl: "assets/fono_ufpe.png" },
+            { name: "Consultoria Kappa", description: "Consultoria em design para a Faculdade de Direito.", logoUrl: "assets/museu_minerais.png" },
+            { name: "Workshop Lambda", description: "Organização de evento com a Pró-Reitoria de Pós-Graduação.", logoUrl: "assets/rapel_esportivo.png" },
+            { name: "Comunicação Mú", description: "Criação de materiais para o Centro de Ciências Exatas (CCE).", logoUrl: "assets/rulle.png" }
         ];
 
         // Variáveis globais para Projetos (Novo)
@@ -825,6 +948,45 @@
         // Variáveis globais para Conexões
         const INITIAL_DISPLAY_COUNT = 3;
         let isConnectionsExpanded = false;
+
+        // --- FUNÇÕES DE MODAL (NOVO) ---
+        function openProjectModal(projectId) {
+            const project = PROJECTS_DATA.find(p => p.id === projectId);
+            if (!project) return;
+
+            // Preenche os dados
+            document.getElementById('modal-project-title').textContent = project.title;
+            document.getElementById('modal-project-category').textContent = `${project.category} - ${project.subcategory}`;
+            document.getElementById('modal-project-description').textContent = `Detalhes completos sobre o projeto "${project.title}". Este projeto foi desenvolvido com foco em excelência e impacto na comunicação da extensão universitária.`;
+
+            // Gera 4 imagens de placeholder baseadas na categoria
+            const galleryGrid = document.getElementById('modal-gallery-grid');
+            galleryGrid.innerHTML = ''; // Limpa anterior
+            
+            const colorMap = {
+                'DESIGN': '8B0000', // Red
+                'AUDIOVISUAL': '1976d2', // Blue
+                'EDITORIAL': '388e3c', // Green
+            };
+            const color = colorMap[project.category] || '555555';
+
+            for (let i = 1; i <= 4; i++) {
+                const img = document.createElement('img');
+                img.src = `https://placehold.co/600x400/${color}/ffffff?text=${project.category}+Img+${i}`;
+                img.alt = `Detalhe ${i} do projeto`;
+                img.className = "w-full h-48 object-cover rounded-lg shadow-sm border border-gray-200 hover:opacity-90 transition-opacity cursor-pointer";
+                galleryGrid.appendChild(img);
+            }
+
+            // Mostra o modal e trava o scroll do corpo
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Destrava o scroll
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -927,8 +1089,11 @@
                 // Placeholder para imagem de projeto
                 const placeholderUrl = `https://placehold.co/400x256/${primaryColor.replace('/', '').replace('70', '')}/ffffff?text=${project.category}`;
 
+                // ADICIONADO: onclick event e cursor-pointer
                 return `
-                    <div class="project-card relative bg-cinza_escuro h-64 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-[1.01] overflow-hidden group" data-category="${project.category}">
+                    <div class="project-card relative bg-cinza_escuro h-64 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:scale-[1.01] overflow-hidden group cursor-pointer" 
+                         data-category="${project.category}"
+                         onclick="openProjectModal(${project.id})">
                         <!-- Imagem/Placeholder de Fundo -->
                         <img src="${placeholderUrl}" alt="Projeto ${project.title}" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
                         
@@ -939,7 +1104,7 @@
                             <p class="text-xl font-bold">${project.title}</p>
                             <p class="text-xs text-gray-300">${project.category} - ${project.subcategory}</p>
                         </div>
-                        <a href="#" class="absolute inset-0 z-30"></a>
+                        <div class="absolute inset-0 z-30"></div>
                     </div>
                 `;
             };
@@ -952,7 +1117,7 @@
                     : currentFilteredProjects.slice(0, PROJECTS_INITIAL_DISPLAY_COUNT);
 
                 if (projectsToShow.length === 0) {
-                     projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
+                      projectsGrid.innerHTML = '<p class="text-gray-500 text-center col-span-full py-10">Nenhum projeto encontrado nesta categoria.</p>';
                 } else {
                     projectsToShow.forEach(project => projectsGrid.innerHTML += createProjectCard(project));
                 }
@@ -1070,7 +1235,7 @@
                     'bureau-purple': 'from-bureau-purple-600 to-bureau-purple-400',
                     'bureau-blue': 'from-bureau-blue-600 to-bureau-blue-400',
                     'bureau-green': 'from-bureau-green-600 to-bureau-green-400',
-                    'ufpe-red': 'from-red-600 to-red-400', 
+                    'ufpe-red': 'from-red-600 to-red-400', // Usando red-600/400 para cores do Tailwind mais seguras
                     'ufpe-red-light': 'from-red-400 to-red-200',
                 };
                 const gradientClass = colorClasses[color] || 'from-gray-600 to-gray-400';
@@ -1084,7 +1249,7 @@
                         </div>
                     `;
 
-                const badgeColor = color; 
+                const badgeColor = color; // Cor do texto do badge é a cor do Bureau
 
                 return `
                     <div class="team-card p-4 bg-white rounded-xl shadow-lg border border-gray-200 text-center transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1">
@@ -1256,4 +1421,4 @@
         });
     </script>
 </body>
-</html>
+</html
