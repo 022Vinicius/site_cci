@@ -911,11 +911,12 @@
             { id: 8, title: "Logotipo Novo Projeto", category: "DESIGN", subcategory: "Identidade Visual" },
             { id: 11, title: "Peça Social Media A", category: "DESIGN", subcategory: "Mídias Sociais" },
             
-            // 15x AUDIOVISUAL
-            { id: 2, title: "Campanha Vestibular 2024", category: "AUDIOVISUAL", subcategory: "Mídias Sociais" },
-            { id: 5, title: "Podcast 'Conecta UFPE'", category: "AUDIOVISUAL", subcategory: "Acervos Musicais" },
-            { id: 7, title: "Vídeo Institucional", category: "AUDIOVISUAL", subcategory: "Eventos" },
-            { id: 10, title: "Cobertura Congresso", category: "AUDIOVISUAL", subcategory: "Eventos" },
+            // 15x AUDIOVISUAL - ADICIONADO videoId (Exemplos do YouTube)
+            // Substitua os videoId pelos códigos reais dos vídeos do Youtube (aquilo que vem depois de ?v=)
+            { id: 2, title: "Vídeo Institucional", category: "AUDIOVISUAL", subcategory: "Extensão além da sala de aula", videoId: "M7lc1UVf-VE" },
+            { id: 5, title: "Viva a extensão", category: "AUDIOVISUAL", subcategory: "Série documental sobre Extensão na UFPE", videoId: "dQw4w9WgXcQ" },
+            { id: 7, title: "Extensão em ação ", category: "AUDIOVISUAL", subcategory: "Boletim semanal com notícias da Extensão", videoId: "M7lc1UVf-VE" },
+            { id: 10, title: "Curricularizacão", category: "AUDIOVISUAL", subcategory: "Como a extensão integra a formação dos estudantes.", videoId: "dQw4w9WgXcQ" },
         
             // 14x EDITORIAL
             { id: 3, title: "Relatório Anual UFPE", category: "EDITORIAL", subcategory: "Editorial" },
@@ -959,23 +960,48 @@
             document.getElementById('modal-project-category').textContent = `${project.category} - ${project.subcategory}`;
             document.getElementById('modal-project-description').textContent = `Detalhes completos sobre o projeto "${project.title}". Este projeto foi desenvolvido com foco em excelência e impacto na comunicação da extensão universitária.`;
 
-            // Gera 4 imagens de placeholder baseadas na categoria
+            // Obtém o elemento grid da galeria
             const galleryGrid = document.getElementById('modal-gallery-grid');
             galleryGrid.innerHTML = ''; // Limpa anterior
             
-            const colorMap = {
-                'DESIGN': '8B0000', // Red
-                'AUDIOVISUAL': '1976d2', // Blue
-                'EDITORIAL': '388e3c', // Green
-            };
-            const color = colorMap[project.category] || '555555';
+            // --- LOGICA DE VIDEO PARA AUDIOVISUAL ---
+            if (project.category === 'AUDIOVISUAL') {
+                // Remove a grid padrão de colunas para o vídeo ocupar largura total
+                galleryGrid.className = "w-full";
+                
+                // Usa o ID do vídeo definido nos dados ou um placeholder
+                const videoId = project.videoId || 'M7lc1UVf-VE'; 
 
-            for (let i = 1; i <= 4; i++) {
-                const img = document.createElement('img');
-                img.src = `https://placehold.co/600x400/${color}/ffffff?text=${project.category}+Img+${i}`;
-                img.alt = `Detalhe ${i} do projeto`;
-                img.className = "w-full h-48 object-cover rounded-lg shadow-sm border border-gray-200 hover:opacity-90 transition-opacity cursor-pointer";
-                galleryGrid.appendChild(img);
+                galleryGrid.innerHTML = `
+                    <div class="aspect-w-16 aspect-h-9 w-full">
+                        <iframe 
+                            class="w-full h-[315px] md:h-[400px] rounded-lg shadow-lg bg-black" 
+                            src="https://www.youtube.com/embed/${videoId}" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+            } else {
+                // --- LOGICA ORIGINAL PARA OUTROS PROJETOS (IMAGENS) ---
+                // Restaura as classes de grid original
+                galleryGrid.className = "grid grid-cols-1 sm:grid-cols-2 gap-4";
+
+                const colorMap = {
+                    'DESIGN': '8B0000', // Red
+                    'EDITORIAL': '388e3c', // Green
+                };
+                const color = colorMap[project.category] || '555555';
+
+                for (let i = 1; i <= 4; i++) {
+                    const img = document.createElement('img');
+                    img.src = `https://placehold.co/600x400/${color}/ffffff?text=${project.category}+Img+${i}`;
+                    img.alt = `Detalhe ${i} do projeto`;
+                    img.className = "w-full h-48 object-cover rounded-lg shadow-sm border border-gray-200 hover:opacity-90 transition-opacity cursor-pointer";
+                    galleryGrid.appendChild(img);
+                }
             }
 
             // Mostra o modal e trava o scroll do corpo
@@ -985,6 +1011,8 @@
 
         function closeProjectModal() {
             document.getElementById('project-modal').classList.add('hidden');
+            // Limpa o conteúdo ao fechar para parar o vídeo se estiver tocando
+            document.getElementById('modal-gallery-grid').innerHTML = '';
             document.body.style.overflow = 'auto'; // Destrava o scroll
         }
 
@@ -1421,4 +1449,4 @@
         });
     </script>
 </body>
-</html
+</html>
